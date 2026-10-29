@@ -1,5 +1,33 @@
 {
   "packageName": "com.diegohorvatti.fakeTraveler",
   "keyFile": "~/.config/scale/play-key.json",
-  "consoleAppId": "4973684977631342689"
+  "consoleAppId": "4973684977631342689",
+  "appContent": {
+    "privacyPolicyUrl": "https://github.com/DIEGOHORVATTI/FakeTraveler/blob/master/PRIVACY.md",
+    "containsAds": false,
+    "loginRequired": false,
+    "usesAdvertisingId": false,
+    "governmentApp": false,
+    "financialFeatures": false,
+    "healthFeatures": false,
+    "collectsData": false,
+    "targetAges": [
+      "18+"
+    ],
+    "contentRating": {
+      "email": "contact@horvatti.com",
+      "answers": {
+        "1037": 2370,
+        "1109": 2558,
+        "1152": 2618,
+        "1188": 2628,
+        "1193": 2630,
+        "1194": 2632,
+        "1195": 2334,
+        "1196": 2223,
+        "1197": 2634,
+        "1375": 2940
+      }
+    }
+  }
 }
