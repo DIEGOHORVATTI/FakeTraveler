@@ -1,0 +1,22 @@
+{
+  "apply": "Áp dụng",
+  "stop": "Dừng",
+  "mockApplied": "Đã áp dụng vị trí giả.",
+  "mockNotApplied": "Chưa áp dụng vị trí giả. Hãy chọn Fake Traveler làm ứng dụng vị trí giả trong Tùy chọn nhà phát triển.",
+  "mockStopped": "Đã dừng giả lập.",
+  "howToTitle": "Cách sử dụng?",
+  "howToInstructions": "Nhấn giữ vào nơi bạn muốn đến trên bản đồ rồi nhấn Áp dụng. Vị trí được giả lập một hoặc nhiều lần theo cài đặt bên dưới. Trong khi giả lập, nhấn giữ một điểm khác để di chuyển đến đó. Nhấn Dừng để kết thúc. Lưu ý: hãy chọn Fake Traveler làm ứng dụng vị trí giả trong Tùy chọn nhà phát triển.",
+  "mockCount": "Giả lập vị trí bao nhiêu lần? (0 = vô hạn)",
+  "mockFrequency": "Số giây giữa mỗi lần giả lập",
+  "mockSpeed": "Giả lập chuyển động như tốc độ",
+  "mockStep": "Giả lập chuyển động? (1 / 1 000 000°, 0 = không)",
+  "mapProvider": "Nhà cung cấp bản đồ (vd: 'OpenStreetMap')",
+  "latitude": "Vĩ độ",
+  "longitude": "Kinh độ",
+  "settings": "Cài đặt",
+  "searchPlaceholder": "Tìm địa chỉ: đường, thành phố",
+  "searchNotFound": "Không tìm thấy địa chỉ.",
+  "about": "Giới thiệu",
+  "mapProviderInfo": "Giá trị có thể dùng: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer và những người đóng góp. GPL-3.0. Mã nguồn: https://github.com/mcastillof/FakeTraveler. Biểu tượng: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

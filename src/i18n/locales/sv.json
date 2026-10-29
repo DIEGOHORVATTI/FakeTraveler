@@ -1,0 +1,22 @@
+{
+  "apply": "Använd",
+  "stop": "Stoppa",
+  "mockApplied": "Falsk plats tillämpad.",
+  "mockNotApplied": "Falsk plats tillämpades inte. Välj Fake Traveler som app för falsk plats i Utvecklaralternativ.",
+  "mockStopped": "Simuleringen stoppades.",
+  "howToTitle": "Hur används den?",
+  "howToInstructions": "Tryck länge där du vill vara på kartan och tryck på Använd. Platsen simuleras en eller flera gånger enligt inställningarna nedan. Under simuleringen kan du trycka länge på en annan punkt för att flytta dit. Tryck på Stoppa för att avsluta. Obs! Välj Fake Traveler som app för falsk plats i Utvecklaralternativ.",
+  "mockCount": "Hur många gånger ska platsen simuleras? (0 = oändligt)",
+  "mockFrequency": "Sekunder mellan varje simulering",
+  "mockSpeed": "Simulera rörelse som hastighet",
+  "mockStep": "Simulera rörelse? (1 / 1 000 000°, 0 = nej)",
+  "mapProvider": "Kartleverantör (t.ex. 'OpenStreetMap')",
+  "latitude": "Lat",
+  "longitude": "Long",
+  "settings": "Inställningar",
+  "searchPlaceholder": "Sök adress: gata, stad",
+  "searchNotFound": "Adressen hittades inte.",
+  "about": "Om",
+  "mapProviderInfo": "Möjliga värden: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer och bidragsgivare. GPL-3.0. Källkod: https://github.com/mcastillof/FakeTraveler. Ikon: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

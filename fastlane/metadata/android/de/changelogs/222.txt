@@ -1,2 +1,0 @@
-* Abhängigkeiten aktualisiert
-* Lat/Lon-Felder dürfen in die nächste Zeile umgebrochen werden

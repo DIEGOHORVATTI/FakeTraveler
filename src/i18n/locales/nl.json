@@ -1,0 +1,22 @@
+{
+  "apply": "Toepassen",
+  "stop": "Stoppen",
+  "mockApplied": "Neplocatie toegepast.",
+  "mockNotApplied": "Neplocatie niet toegepast. Kies Fake Traveler als app voor neplocaties in de Ontwikkelaarsopties.",
+  "mockStopped": "Simulatie gestopt.",
+  "howToTitle": "Hoe werkt het?",
+  "howToInstructions": "Houd de plek op de kaart ingedrukt waar je wilt zijn en tik op Toepassen. De locatie wordt een of meer keren gesimuleerd volgens de instellingen hieronder. Tijdens het simuleren houd je een ander punt ingedrukt om daarheen te gaan. Tik op Stoppen om te eindigen. Let op: kies Fake Traveler als app voor neplocaties in de Ontwikkelaarsopties.",
+  "mockCount": "Hoe vaak de locatie simuleren? (0 = oneindig)",
+  "mockFrequency": "Seconden tussen elke simulatie",
+  "mockSpeed": "Beweging als snelheid simuleren",
+  "mockStep": "Beweging simuleren? (1 / 1 000 000°, 0 = nee)",
+  "mapProvider": "Kaartaanbieder (bijv. 'OpenStreetMap')",
+  "latitude": "Lat",
+  "longitude": "Long",
+  "settings": "Instellingen",
+  "searchPlaceholder": "Adres zoeken: straat, plaats",
+  "searchNotFound": "Adres niet gevonden.",
+  "about": "Over",
+  "mapProviderInfo": "Mogelijke waarden: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer en bijdragers. GPL-3.0. Broncode: https://github.com/mcastillof/FakeTraveler. App-pictogram: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

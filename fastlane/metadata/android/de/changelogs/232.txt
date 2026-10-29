@@ -1,1 +1,0 @@
-* Fehler- und Infomeldungen werden nun in der App vollständig angezeigt

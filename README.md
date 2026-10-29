@@ -1,11 +1,10 @@
 # FakeTraveler
-<img alt="Logo" src="fastlane/metadata/android/en-US/images/icon.png" width="80" />
+<img alt="Logo" src="assets/images/icon.png" width="80" />
 
 Fake where your phone is located (Mock location for Android).
 
 Sometimes you need to fake the location of your device (for privacy or to test an app). Fake Traveler provides you a map to select the location where you want your phone to be.
 
-<a href="https://f-droid.org/app/cl.coders.faketraveler"><img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="100"></a>
 
 
 ## How does it work?
@@ -35,9 +34,28 @@ In order to work, you need to allow Fake Traveler to mock locations. You have to
 </div>
 
 
-## Changelogs
+## Development
 
-See fastlane/metadata/android/en-US/changelogs/
+Expo (SDK 57) + Expo Router + NativeWind + zustand, managed with [bun](https://bun.sh). The mock itself
+is a local Expo module in Kotlin (`modules/mock-location`); the map is Leaflet inside a WebView.
+
+```sh
+bun install
+bun run check    # typecheck + oxlint + oxfmt + bun test
+bun run start    # Metro for a dev-client build
+```
+
+Native builds run on CI only:
+
+- `ci.yml`: typecheck, lint, format and tests on every push.
+- `build-aab.yml` (manual): signed AAB uploaded to Google Play (`com.diegohorvatti.fakeTraveler`),
+  then records versionCode, versionName and the native fingerprint on the default branch.
+- `ota-update.yml`: on push to the default branch, publishes an EAS Update when the native
+  fingerprint still matches the last AAB.
+- `build-apk.yml` (manual or `v*` tag): installable APK for testing.
+
+Secrets: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`,
+`ANDROID_KEY_PASSWORD`, `PLAY_SERVICE_ACCOUNT_JSON`, `EXPO_TOKEN`.
 
 
 ## License

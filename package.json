@@ -1,0 +1,58 @@
+{
+  "name": "fake-traveler",
+  "version": "3.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo start --android --dev-client",
+    "lint": "oxlint app src modules",
+    "lint:fix": "oxlint app src modules --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun test"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "57.0.18",
+    "expo-constants": "~57.0.16",
+    "expo-linking": "~57.0.8",
+    "expo-localization": "~57.0.1",
+    "expo-router": "~57.0.17",
+    "expo-splash-screen": "~57.0.8",
+    "expo-status-bar": "~57.0.1",
+    "expo-updates": "~57.0.19",
+    "lucide-react-native": "^1.37.0",
+    "nativewind": "5.0.0-preview.4",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-css": "3.0.7",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "react-native-webview": "13.16.1",
+    "react-native-worklets": "0.10.1",
+    "tailwindcss": "^4.3.3",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/bun": "^1.4.2",
+    "@types/react": "~19.2.18",
+    "expo-dev-client": "~57.0.19",
+    "oxfmt": "0.65.0",
+    "oxlint": "1.80.0",
+    "postcss": "^8.5.26",
+    "typescript": "~6.0.3"
+  },
+  "overrides": {
+    "lightningcss": "1.30.1"
+  },
+  "packageManager": "bun@1.4.0",
+  "patchedDependencies": {
+    "react-native-css@3.0.7": "patches/react-native-css@3.0.7.patch"
+  }
+}

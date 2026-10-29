@@ -1,0 +1,22 @@
+{
+  "apply": "Apply",
+  "stop": "Stop",
+  "mockApplied": "Mocked location applied.",
+  "mockNotApplied": "Mocked location not applied. Select Fake Traveler as the mock location app in Developer options.",
+  "mockStopped": "Mocking stopped.",
+  "howToTitle": "How to use it?",
+  "howToInstructions": "Long press where you want to be on the map and tap Apply. The location is mocked one or more times according to the settings below. While mocking, long press another point to move there. Tap Stop to end. Note: select Fake Traveler as the mock location app in Developer options.",
+  "mockCount": "How many times to mock the location? (0 = infinite)",
+  "mockFrequency": "Seconds between each mock",
+  "mockSpeed": "Mock movement as speed",
+  "mockStep": "Mock movement? (1 / 1 000 000°, 0 = no)",
+  "mapProvider": "Map provider (e.g. 'OpenStreetMap')",
+  "latitude": "Lat",
+  "longitude": "Long",
+  "settings": "Settings",
+  "searchPlaceholder": "Search an address: street, city",
+  "searchNotFound": "Address not found.",
+  "about": "About",
+  "mapProviderInfo": "Possible values: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer and contributors. GPL-3.0. Source code: https://github.com/mcastillof/FakeTraveler. Launcher icon: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

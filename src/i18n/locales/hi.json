@@ -1,0 +1,22 @@
+{
+  "apply": "लागू करें",
+  "stop": "रोकें",
+  "mockApplied": "नकली लोकेशन लागू की गई।",
+  "mockNotApplied": "नकली लोकेशन लागू नहीं हुई। डेवलपर विकल्पों में Fake Traveler को मॉक लोकेशन ऐप चुनें।",
+  "mockStopped": "सिमुलेशन रोक दिया गया।",
+  "howToTitle": "कैसे इस्तेमाल करें?",
+  "howToInstructions": "मैप पर जहाँ आप होना चाहते हैं वहाँ देर तक दबाएँ और लागू करें पर टैप करें। नीचे की सेटिंग के अनुसार लोकेशन एक या अधिक बार सिम्युलेट की जाती है। सिमुलेशन के दौरान, वहाँ जाने के लिए किसी दूसरे बिंदु को देर तक दबाएँ। खत्म करने के लिए रोकें पर टैप करें। नोट: डेवलपर विकल्पों में Fake Traveler को मॉक लोकेशन ऐप चुनें।",
+  "mockCount": "लोकेशन कितनी बार सिम्युलेट करें? (0 = अनंत)",
+  "mockFrequency": "हर सिमुलेशन के बीच सेकंड",
+  "mockSpeed": "गति के रूप में हलचल सिम्युलेट करें",
+  "mockStep": "हलचल सिम्युलेट करें? (1 / 1 000 000°, 0 = नहीं)",
+  "mapProvider": "मैप प्रदाता (जैसे 'OpenStreetMap')",
+  "latitude": "अक्षांश",
+  "longitude": "देशांतर",
+  "settings": "सेटिंग",
+  "searchPlaceholder": "पता खोजें: सड़क, शहर",
+  "searchNotFound": "पता नहीं मिला।",
+  "about": "जानकारी",
+  "mapProviderInfo": "संभावित मान: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer और योगदानकर्ता. GPL-3.0. सोर्स कोड: https://github.com/mcastillof/FakeTraveler. आइकन: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

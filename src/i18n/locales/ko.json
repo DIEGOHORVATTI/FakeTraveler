@@ -1,0 +1,22 @@
+{
+  "apply": "적용",
+  "stop": "중지",
+  "mockApplied": "모의 위치가 적용되었습니다.",
+  "mockNotApplied": "모의 위치가 적용되지 않았습니다. 개발자 옵션에서 Fake Traveler를 모의 위치 앱으로 선택하세요.",
+  "mockStopped": "모의 위치가 중지되었습니다.",
+  "howToTitle": "사용 방법",
+  "howToInstructions": "지도에서 원하는 위치를 길게 누른 뒤 적용을 누르세요. 아래 설정에 따라 위치가 한 번 이상 모의됩니다. 모의 중에는 다른 지점을 길게 눌러 그곳으로 이동할 수 있습니다. 끝내려면 중지를 누르세요. 참고: 개발자 옵션에서 Fake Traveler를 모의 위치 앱으로 선택하세요.",
+  "mockCount": "위치를 몇 번 모의할까요? (0 = 무제한)",
+  "mockFrequency": "모의 간격(초)",
+  "mockSpeed": "이동을 속도로 모의",
+  "mockStep": "이동을 모의할까요? (1 / 1 000 000°, 0 = 아니요)",
+  "mapProvider": "지도 제공자 (예: 'OpenStreetMap')",
+  "latitude": "위도",
+  "longitude": "경도",
+  "settings": "설정",
+  "searchPlaceholder": "주소 검색: 도로명, 도시",
+  "searchNotFound": "주소를 찾을 수 없습니다.",
+  "about": "정보",
+  "mapProviderInfo": "가능한 값: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer 및 기여자. GPL-3.0. 소스 코드: https://github.com/mcastillof/FakeTraveler. 아이콘: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

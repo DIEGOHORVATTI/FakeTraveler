@@ -1,2 +1,0 @@
-* App kann jetzt auf "geo:" Intents reagieren (z. B., beim Teilen solcher Links von OSM)
-* Abhängigkeiten aktualisiert

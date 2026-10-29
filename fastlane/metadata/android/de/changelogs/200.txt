@@ -1,3 +1,0 @@
-* Aktualisierung auf Material-Layout und neue Standards
-* Aktualisiertes/modernisiertes App-Symbol
-* Der Großteil der Codebasis wurde komplett überarbeitet

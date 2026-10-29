@@ -1,0 +1,22 @@
+{
+  "apply": "Uygula",
+  "stop": "Durdur",
+  "mockApplied": "Sahte konum uygulandı.",
+  "mockNotApplied": "Sahte konum uygulanmadı. Geliştirici seçeneklerinde Fake Traveler’ı sahte konum uygulaması olarak seçin.",
+  "mockStopped": "Simülasyon durduruldu.",
+  "howToTitle": "Nasıl kullanılır?",
+  "howToInstructions": "Haritada olmak istediğiniz yere uzun basın ve Uygula’ya dokunun. Konum, aşağıdaki ayarlara göre bir veya daha fazla kez taklit edilir. Simülasyon sırasında başka bir noktaya uzun basarak oraya geçebilirsiniz. Bitirmek için Durdur’a dokunun. Not: Geliştirici seçeneklerinde Fake Traveler’ı sahte konum uygulaması olarak seçin.",
+  "mockCount": "Konum kaç kez taklit edilsin? (0 = sonsuz)",
+  "mockFrequency": "Her simülasyon arasındaki saniye",
+  "mockSpeed": "Hareketi hız olarak taklit et",
+  "mockStep": "Hareket taklit edilsin mi? (1 / 1 000 000°, 0 = hayır)",
+  "mapProvider": "Harita sağlayıcısı (ör. 'OpenStreetMap')",
+  "latitude": "Enl.",
+  "longitude": "Boy.",
+  "settings": "Ayarlar",
+  "searchPlaceholder": "Adres ara: sokak, şehir",
+  "searchNotFound": "Adres bulunamadı.",
+  "about": "Hakkında",
+  "mapProviderInfo": "Olası değerler: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer ve katkıda bulunanlar. GPL-3.0. Kaynak kodu: https://github.com/mcastillof/FakeTraveler. Simge: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

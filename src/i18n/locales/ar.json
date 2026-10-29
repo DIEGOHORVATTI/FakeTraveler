@@ -1,0 +1,22 @@
+{
+  "apply": "تطبيق",
+  "stop": "إيقاف",
+  "mockApplied": "تم تطبيق الموقع الوهمي.",
+  "mockNotApplied": "لم يتم تطبيق الموقع الوهمي. اختر Fake Traveler كتطبيق الموقع الوهمي في خيارات المطور.",
+  "mockStopped": "تم إيقاف المحاكاة.",
+  "howToTitle": "كيف تستخدمه؟",
+  "howToInstructions": "اضغط مطولًا على المكان الذي تريد أن تكون فيه على الخريطة ثم اضغط تطبيق. تتم محاكاة الموقع مرة أو أكثر حسب الإعدادات أدناه. أثناء المحاكاة، اضغط مطولًا على نقطة أخرى للانتقال إليها. اضغط إيقاف للإنهاء. ملاحظة: اختر Fake Traveler كتطبيق الموقع الوهمي في خيارات المطور.",
+  "mockCount": "كم مرة تتم محاكاة الموقع؟ (0 = بلا نهاية)",
+  "mockFrequency": "الثواني بين كل محاكاة",
+  "mockSpeed": "محاكاة الحركة كسرعة",
+  "mockStep": "محاكاة الحركة؟ (1 / 1 000 000°، 0 = لا)",
+  "mapProvider": "مزود الخريطة (مثل 'OpenStreetMap')",
+  "latitude": "خط العرض",
+  "longitude": "خط الطول",
+  "settings": "الإعدادات",
+  "searchPlaceholder": "ابحث عن عنوان: شارع، مدينة",
+  "searchNotFound": "لم يتم العثور على العنوان.",
+  "about": "حول",
+  "mapProviderInfo": "القيم الممكنة: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer والمساهمون. GPL-3.0. الشيفرة المصدرية: https://github.com/mcastillof/FakeTraveler. الأيقونة: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

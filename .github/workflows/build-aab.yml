@@ -1,0 +1,254 @@
+name: Build Android AAB (Play Store)
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionCode:
+        description: 'versionCode (precisa ser maior que o último enviado à Play)'
+        required: true
+        type: string
+      track:
+        description: 'Track da Play'
+        required: true
+        default: production
+        type: choice
+        options:
+          - internal
+          - alpha
+          - beta
+          - production
+      bump:
+        description: 'Como subir o versionName (major.minor.patch)'
+        required: true
+        default: auto
+        type: choice
+        options:
+          - auto
+          - patch
+          - minor
+          - major
+          - manter
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Libera espaço em disco
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost \
+            /usr/local/lib/node_modules /usr/share/swift \
+            "$AGENT_TOOLSDIRECTORY" || true
+          sudo docker image prune --all --force || true
+          df -h / | tail -1
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: latest
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3.2.2
+        with:
+          packages: ''
+
+      - name: Instala dependências
+        run: bun install --frozen-lockfile
+
+      - name: Decide o versionName
+        id: versao
+        run: |
+          atual=$(node -p 'require("./app.json").expo.version')
+          anterior=$(git log --format=%H -1 --grep="chore(release):" || true)
+          intervalo=${anterior:+$anterior..HEAD}
+
+          if [ "$BUMP" = "auto" ]; then
+            if git log $intervalo --format=%s | grep -qE '^[a-z]+(\(.+\))?!:|BREAKING CHANGE'; then
+              tipo=major
+            elif git log $intervalo --format=%s | grep -qE '^feat(\(.+\))?:'; then
+              tipo=minor
+            else
+              tipo=patch
+            fi
+          else
+            tipo=$BUMP
+          fi
+
+          if [ "$tipo" = "manter" ]; then
+            echo "nome=$atual" >> "$GITHUB_OUTPUT"
+            echo "versionName mantido em $atual"
+            exit 0
+          fi
+
+          novo=$(node -e '
+            const [maior, menor, correcao] = process.argv[1].split(".").map(Number);
+            const tipo = process.argv[2];
+            const partes = tipo === "major" ? [maior + 1, 0, 0]
+              : tipo === "minor" ? [maior, menor + 1, 0]
+              : [maior, menor, correcao + 1];
+            console.log(partes.join("."));
+          ' "$atual" "$tipo")
+
+          echo "nome=$novo" >> "$GITHUB_OUTPUT"
+          echo "versionName: $atual -> $novo (bump $tipo)"
+        env:
+          BUMP: ${{ inputs.bump }}
+
+      - name: Fixa versionCode e versionName
+        run: |
+          node -e '
+            const fs = require("fs");
+            const caminho = "app.json";
+            const app = JSON.parse(fs.readFileSync(caminho, "utf8"));
+            app.expo.android.versionCode = Number(process.env.VERSION_CODE);
+            app.expo.version = process.env.VERSION_NAME;
+            fs.writeFileSync(caminho, JSON.stringify(app, null, 2) + "\n");
+
+            const pkgPath = "package.json";
+            const pkg = fs.readFileSync(pkgPath, "utf8");
+            fs.writeFileSync(pkgPath, pkg.replace(/"version": "[^"]*"/, `"version": "${app.expo.version}"`));
+
+            console.log("versionCode:", app.expo.android.versionCode, "versionName:", app.expo.version);
+          '
+        env:
+          BUMP: ${{ inputs.bump }}
+          VERSION_CODE: ${{ inputs.versionCode }}
+          VERSION_NAME: ${{ steps.versao.outputs.nome }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
+      - name: Gera projeto nativo Android
+        run: bunx expo prebuild --platform android --no-install
+
+      - name: Restaura a keystore de upload
+        run: |
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > android/app/upload.jks
+          test -s android/app/upload.jks
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+
+      - name: Confere a keystore antes de compilar
+        run: |
+          keytool -list \
+            -keystore android/app/upload.jks \
+            -storepass "$KEYSTORE_PASSWORD" \
+            -alias "$KEY_ALIAS" > /dev/null
+          echo "keystore e senha conferem, alias $KEY_ALIAS encontrado"
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-aab-${{ runner.os }}-${{ hashFiles('android/**/*.gradle*') }}
+          restore-keys: gradle-aab-${{ runner.os }}-
+
+      - name: Build AAB assinado
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease \
+            --no-daemon \
+            --max-workers=2 \
+            -x lint \
+            -x lintVitalRelease \
+            -Pandroid.lint.checkReleaseBuilds=false \
+            -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/android/app/upload.jks \
+            -Pandroid.injected.signing.store.password="$KEYSTORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$KEY_PASSWORD"
+        env:
+          GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4g -Dkotlin.daemon.jvmargs=-Xmx1g
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: armeabi-v7a,arm64-v8a
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      - name: Confere a assinatura
+        run: |
+          caminho=$(find android/app/build/outputs/bundle -name '*.aab' | head -1)
+          echo "AAB: $caminho"
+          ls -la "$caminho"
+          unzip -l "$caminho" | grep -c 'lib/' || true
+
+      - name: Apaga a keystore do runner
+        if: always()
+        run: rm -f android/app/upload.jks
+
+      - name: Upload do AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: fake-traveler-aab-${{ inputs.versionCode }}
+          path: android/app/build/outputs/bundle/release/*.aab
+          retention-days: 30
+
+      - name: Preflight da Play (Greenlight)
+        run: |
+          curl -fsSL "https://github.com/RevylAI/greenlight/releases/download/v$GREENLIGHT_VERSION/greenlight_${GREENLIGHT_VERSION}_linux_amd64.tar.gz" -o "$RUNNER_TEMP/greenlight.tar.gz"
+          echo "$GREENLIGHT_SHA256  $RUNNER_TEMP/greenlight.tar.gz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/greenlight.tar.gz" -C "$RUNNER_TEMP" greenlight
+          "$RUNNER_TEMP/greenlight" playscan --aab android/app/build/outputs/bundle/release/*.aab --exit-code
+        env:
+          GREENLIGHT_VERSION: 0.2.0
+          GREENLIGHT_SHA256: 1e075a588a3b7968de903e53d904cabc983904dadb76906cb5aa149acf07dfff
+
+      - name: Envia para a Play Store
+        uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.diegohorvatti.fakeTraveler
+          releaseFiles: android/app/build/outputs/bundle/release/*.aab
+          track: ${{ inputs.track }}
+          status: completed
+          whatsNewDirectory: play/whatsnew
+
+      - name: Calcula o fingerprint deste binário
+        run: |
+          bunx expo-updates fingerprint:generate --platform android | jq '{hash}' > "$RUNNER_TEMP/native-fingerprint.json"
+          cat "$RUNNER_TEMP/native-fingerprint.json"
+
+      - name: Registra versão e fingerprint no repositório
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -- . || true
+          git fetch origin "$DEFAULT_BRANCH"
+          git checkout -B versao "origin/$DEFAULT_BRANCH"
+          cp "$RUNNER_TEMP/native-fingerprint.json" native-fingerprint.json
+          [ "$BUMP" = "manter" ] || node -e '
+            const fs = require("fs");
+            const caminho = "app.json";
+            const app = JSON.parse(fs.readFileSync(caminho, "utf8"));
+            app.expo.android.versionCode = Number(process.env.VERSION_CODE);
+            app.expo.version = process.env.VERSION_NAME;
+            fs.writeFileSync(caminho, JSON.stringify(app, null, 2) + "\n");
+
+            const pkgPath = "package.json";
+            const pkg = fs.readFileSync(pkgPath, "utf8");
+            fs.writeFileSync(pkgPath, pkg.replace(/"version": "[^"]*"/, `"version": "${app.expo.version}"`));
+          '
+          git add native-fingerprint.json app.json package.json
+          if git diff --quiet --cached; then
+            echo "versao e fingerprint ja estavam registrados"
+            exit 0
+          fi
+          git commit -m "chore(release): v$VERSION_NAME (versionCode $VERSION_CODE)"
+          git push origin "versao:$DEFAULT_BRANCH"
+        env:
+          BUMP: ${{ inputs.bump }}
+          VERSION_CODE: ${{ inputs.versionCode }}
+          VERSION_NAME: ${{ steps.versao.outputs.nome }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}

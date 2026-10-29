@@ -1,0 +1,22 @@
+{
+  "apply": "应用",
+  "stop": "停止",
+  "mockApplied": "已应用模拟位置。",
+  "mockNotApplied": "未能应用模拟位置。请在开发者选项中将 Fake Traveler 选为模拟位置信息应用。",
+  "mockStopped": "已停止模拟。",
+  "howToTitle": "如何使用？",
+  "howToInstructions": "在地图上长按你想要所在的位置，然后点按“应用”。位置会根据下方设置模拟一次或多次。模拟期间，长按另一个地点即可移动过去。点按“停止”结束。注意：请在开发者选项中将 Fake Traveler 选为模拟位置信息应用。",
+  "mockCount": "模拟位置多少次？（0 = 无限）",
+  "mockFrequency": "每次模拟间隔的秒数",
+  "mockSpeed": "将移动模拟为速度",
+  "mockStep": "模拟移动？（1 / 1 000 000°，0 = 否）",
+  "mapProvider": "地图提供商（例如 'OpenStreetMap'）",
+  "latitude": "纬度",
+  "longitude": "经度",
+  "settings": "设置",
+  "searchPlaceholder": "搜索地址：街道、城市",
+  "searchNotFound": "未找到地址。",
+  "about": "关于",
+  "mapProviderInfo": "可用的值: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer 及贡献者. GPL-3.0. 源代码: https://github.com/mcastillof/FakeTraveler. 图标: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

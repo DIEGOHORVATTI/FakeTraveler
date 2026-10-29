@@ -1,2 +1,0 @@
-* Disable edge-to-edge layout for now (fixes Android 15 and 16 layout)
-* Allow setting different map providers (using leaflet-providers)

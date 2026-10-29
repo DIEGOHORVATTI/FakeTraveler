@@ -1,0 +1,57 @@
+diff --git a/dist/commonjs/native/styles/index.js b/dist/commonjs/native/styles/index.js
+index 222296d6bd95a69dd87af100d8387753c54d2095..c25e7143e0107f7be627d6161124f5ee03afad0b 100644
+--- a/dist/commonjs/native/styles/index.js
++++ b/dist/commonjs/native/styles/index.js
+@@ -373,7 +373,13 @@ function nativeStyleMapping(config, props) {
+       continue;
+     }
+     let target = props;
+-    const tokens = path.split(".");
++    // `true` significa "mesma chave" (ex.: TextInput -> textAlign), mas o
++    // runtime so tratava string e chamava `.split` num boolean.
++    const propPath = path === true ? key : path;
++    if (typeof propPath !== "string") {
++      continue;
++    }
++    const tokens = propPath.split(".");
+     const lastToken = tokens.pop();
+     for (const token of tokens) {
+       target[token] ??= {};
+diff --git a/dist/module/native/styles/index.js b/dist/module/native/styles/index.js
+index 067f8edb6459cf6b15258df079c541746f233af5..8216a161efd63a1eeb371a2f36a5e4831618c282 100644
+--- a/dist/module/native/styles/index.js
++++ b/dist/module/native/styles/index.js
+@@ -369,7 +369,13 @@ function nativeStyleMapping(config, props) {
+       continue;
+     }
+     let target = props;
+-    const tokens = path.split(".");
++    // `true` significa "mesma chave" (ex.: TextInput -> textAlign), mas o
++    // runtime so tratava string e chamava `.split` num boolean.
++    const propPath = path === true ? key : path;
++    if (typeof propPath !== "string") {
++      continue;
++    }
++    const tokens = propPath.split(".");
+     const lastToken = tokens.pop();
+     for (const token of tokens) {
+       target[token] ??= {};
+diff --git a/src/native/styles/index.ts b/src/native/styles/index.ts
+index 9ac5cc4d7c532cd9f6686d4b9d5909d5a76e8aab..f31f8b3c2105c7062c5ae1927d2bfbd7dcd18713 100644
+--- a/src/native/styles/index.ts
++++ b/src/native/styles/index.ts
+@@ -504,7 +504,13 @@ function nativeStyleMapping(
+     }
+ 
+     let target = props;
+-    const tokens = path.split(".");
++    // `true` significa "mesma chave" (ex.: TextInput -> textAlign), mas o
++    // runtime so tratava string e chamava `.split` num boolean.
++    const propPath = path === true ? key : path;
++    if (typeof propPath !== "string") {
++      continue;
++    }
++    const tokens = propPath.split(".");
+     const lastToken = tokens.pop();
+     for (const token of tokens) {
+       target[token] ??= {};

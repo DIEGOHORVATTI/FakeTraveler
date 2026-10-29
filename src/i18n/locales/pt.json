@@ -1,0 +1,22 @@
+{
+  "apply": "Aplicar",
+  "stop": "Parar",
+  "mockApplied": "Localização fictícia aplicada.",
+  "mockNotApplied": "Localização fictícia não aplicada. Selecione o Fake Traveler como app de localização fictícia nas Opções de programador.",
+  "mockStopped": "Localização fictícia parada.",
+  "howToTitle": "Como utilizar?",
+  "howToInstructions": "Mantenha premido o ponto do mapa onde quer estar e toque em Aplicar. A localização é simulada uma ou mais vezes de acordo com as definições abaixo. Durante a simulação, prima outro ponto para se deslocar. Toque em Parar para terminar. Nota: selecione o Fake Traveler como app de localização fictícia nas Opções de programador.",
+  "mockCount": "Quantas vezes simular a localização? (0 = infinito)",
+  "mockFrequency": "Segundos entre cada simulação",
+  "mockSpeed": "Simular o movimento como velocidade",
+  "mockStep": "Simular movimento? (1 / 1 000 000°, 0 = não)",
+  "mapProvider": "Fornecedor do mapa (ex.: 'OpenStreetMap')",
+  "latitude": "Lat",
+  "longitude": "Long",
+  "settings": "Definições",
+  "searchPlaceholder": "Pesquisar morada: rua, cidade",
+  "searchNotFound": "Morada não encontrada.",
+  "about": "Sobre",
+  "mapProviderInfo": "Valores possíveis: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer e colaboradores. GPL-3.0. Código-fonte: https://github.com/mcastillof/FakeTraveler. Ícone: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

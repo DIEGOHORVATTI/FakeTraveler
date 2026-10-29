@@ -1,4 +1,0 @@
-* Abhängigkeiten aktualisiert
-* Edge-to-Edge-Layout vollständig implementiert
-* Skripte und Karte auf älteren Android-Versionen funktionsfähig gemacht
-* Kleinere Fehlerbehebungen

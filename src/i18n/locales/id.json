@@ -1,0 +1,22 @@
+{
+  "apply": "Terapkan",
+  "stop": "Berhenti",
+  "mockApplied": "Lokasi palsu diterapkan.",
+  "mockNotApplied": "Lokasi palsu tidak diterapkan. Pilih Fake Traveler sebagai aplikasi lokasi palsu di Opsi developer.",
+  "mockStopped": "Simulasi dihentikan.",
+  "howToTitle": "Cara menggunakan?",
+  "howToInstructions": "Tekan lama titik di peta tempat Anda ingin berada, lalu ketuk Terapkan. Lokasi disimulasikan satu kali atau lebih sesuai pengaturan di bawah. Selama simulasi, tekan lama titik lain untuk pindah ke sana. Ketuk Berhenti untuk mengakhiri. Catatan: pilih Fake Traveler sebagai aplikasi lokasi palsu di Opsi developer.",
+  "mockCount": "Berapa kali lokasi disimulasikan? (0 = tanpa batas)",
+  "mockFrequency": "Detik antar simulasi",
+  "mockSpeed": "Simulasikan gerakan sebagai kecepatan",
+  "mockStep": "Simulasikan gerakan? (1 / 1 000 000°, 0 = tidak)",
+  "mapProvider": "Penyedia peta (mis. 'OpenStreetMap')",
+  "latitude": "Lat",
+  "longitude": "Long",
+  "settings": "Pengaturan",
+  "searchPlaceholder": "Cari alamat: jalan, kota",
+  "searchNotFound": "Alamat tidak ditemukan.",
+  "about": "Tentang",
+  "mapProviderInfo": "Nilai yang mungkin: https://leaflet-extras.github.io/leaflet-providers/preview/",
+  "credits": "© 2018-2026 Matías Castillo Felmer dan kontributor. GPL-3.0. Kode sumber: https://github.com/mcastillof/FakeTraveler. Ikon: @ArtistDev44. Leaflet, Leaflet-providers: BSD 2-Clause."
+}

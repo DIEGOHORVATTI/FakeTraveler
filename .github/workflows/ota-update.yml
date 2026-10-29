@@ -1,0 +1,73 @@
+name: OTA Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      mensagem:
+        description: 'Mensagem do update'
+        required: false
+        default: ''
+  push:
+    branches: [master]
+    paths:
+      - 'app/**'
+      - 'src/**'
+      - 'modules/**'
+      - 'assets/**'
+      - 'app.json'
+      - 'package.json'
+      - 'bun.lock'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ota-update
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instala dependências
+        run: bun install --frozen-lockfile
+
+      - name: Gera o nativo para calcular o fingerprint
+        run: bunx expo prebuild --platform android --no-install
+
+      - name: Confere o fingerprint contra o último AAB enviado à Play
+        run: |
+          atual=$(bunx expo-updates fingerprint:generate --platform android | jq -r .hash)
+          binario=$(jq -r .hash native-fingerprint.json)
+          echo "fingerprint atual: $atual"
+          echo "fingerprint do AAB: $binario"
+
+          if [ "$atual" != "$binario" ]; then
+            echo "::error::O fingerprint mudou desde o último AAB. Este OTA não chegaria em nenhum app instalado — rode o build-aab.yml com um versionCode novo."
+            exit 1
+          fi
+
+      - name: Garante o canal production
+        run: bunx eas-cli@25.3.0 channel:create production || true
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Publica o update
+        run: |
+          bunx eas-cli@25.3.0 update \
+            --branch production \
+            --message "$(echo "$MENSAGEM" | head -1)" \
+            --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          MENSAGEM: ${{ inputs.mensagem || github.event.head_commit.message }}
