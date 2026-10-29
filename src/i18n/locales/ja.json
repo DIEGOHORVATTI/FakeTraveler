@@ -41,5 +41,7 @@
   "permissionDenied": "バックグラウンドで偽装を続けるには位置情報へのアクセスを許可してください。",
   "notificationTitle": "位置情報を偽装中",
   "widgetOn": "偽装中",
-  "widgetOff": "停止中"
+  "widgetOff": "停止中",
+  "openInMaps": "他のアプリで開く",
+  "sharedPlaceNotFound": "共有された場所を読み込めませんでした。"
 }

@@ -41,5 +41,7 @@
   "permissionDenied": "백그라운드에서 계속 실행되도록 위치 접근을 허용하세요.",
   "notificationTitle": "위치 모의 중",
   "widgetOn": "모의 중",
-  "widgetOff": "중지됨"
+  "widgetOff": "중지됨",
+  "openInMaps": "다른 앱에서 열기",
+  "sharedPlaceNotFound": "공유된 장소를 읽을 수 없습니다."
 }

@@ -41,5 +41,7 @@
   "permissionDenied": "Izinkan akses lokasi agar simulasi tetap berjalan di latar belakang.",
   "notificationTitle": "Menyimulasikan lokasi",
   "widgetOn": "Menyimulasikan",
-  "widgetOff": "Berhenti"
+  "widgetOff": "Berhenti",
+  "openInMaps": "Buka di aplikasi lain",
+  "sharedPlaceNotFound": "Tidak dapat membaca tempat yang dibagikan."
 }

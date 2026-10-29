@@ -41,5 +41,7 @@
   "permissionDenied": "Erlaube den Standortzugriff, damit die Simulation im Hintergrund weiterläuft.",
   "notificationTitle": "Standort wird simuliert",
   "widgetOn": "Simulation läuft",
-  "widgetOff": "Gestoppt"
+  "widgetOff": "Gestoppt",
+  "openInMaps": "In anderer App öffnen",
+  "sharedPlaceNotFound": "Der geteilte Ort konnte nicht gelesen werden."
 }

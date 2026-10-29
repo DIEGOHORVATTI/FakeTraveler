@@ -41,5 +41,7 @@
   "permissionDenied": "Allow location access so the simulation keeps running in the background.",
   "notificationTitle": "Simulating location",
   "widgetOn": "Simulating",
-  "widgetOff": "Stopped"
+  "widgetOff": "Stopped",
+  "openInMaps": "Open in another app",
+  "sharedPlaceNotFound": "Could not read the shared place."
 }

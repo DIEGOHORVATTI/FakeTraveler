@@ -41,5 +41,7 @@
   "permissionDenied": "Permita o acesso à localização para a simulação continuar em segundo plano.",
   "notificationTitle": "Simulando localização",
   "widgetOn": "Simulando",
-  "widgetOff": "Parado"
+  "widgetOff": "Parado",
+  "openInMaps": "Abrir em outro app",
+  "sharedPlaceNotFound": "Não foi possível ler o local compartilhado."
 }

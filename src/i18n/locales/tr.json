@@ -41,5 +41,7 @@
   "permissionDenied": "Simülasyonun arka planda sürmesi için konum erişimine izin verin.",
   "notificationTitle": "Konum taklit ediliyor",
   "widgetOn": "Taklit ediliyor",
-  "widgetOff": "Durduruldu"
+  "widgetOff": "Durduruldu",
+  "openInMaps": "Başka uygulamada aç",
+  "sharedPlaceNotFound": "Paylaşılan konum okunamadı."
 }

@@ -41,5 +41,7 @@
   "permissionDenied": "Tillåt platsåtkomst så att simuleringen fortsätter i bakgrunden.",
   "notificationTitle": "Simulerar plats",
   "widgetOn": "Simulerar",
-  "widgetOff": "Stoppad"
+  "widgetOff": "Stoppad",
+  "openInMaps": "Öppna i en annan app",
+  "sharedPlaceNotFound": "Kunde inte läsa den delade platsen."
 }

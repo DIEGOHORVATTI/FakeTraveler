@@ -1,11 +1,12 @@
 import { Redirect, useRouter } from 'expo-router'
-import { Bookmark, Route as RouteIcon, Settings, Star } from 'lucide-react-native'
+import { Bookmark, Navigation, Route as RouteIcon, Settings, Star } from 'lucide-react-native'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useShallow } from 'zustand/react/shallow'
 
 import type { Coordinates } from '@/modules/mock-location'
 import { Button } from '@/src/components/ui/button'
+import { ButtonGroup } from '@/src/components/ui/button-group'
 import { IconButton } from '@/src/components/ui/icon-button'
 import { ScreenFooter } from '@/src/components/ui/screen-footer'
 import { AddressSearch } from '@/src/features/mock/components/address-search'
@@ -14,8 +15,10 @@ import { MapView } from '@/src/features/mock/components/map-view'
 import { RouteChip } from '@/src/features/mock/components/route-chip'
 import { useGeoIntent } from '@/src/features/mock/hooks/use-geo-intent'
 import { useMockLocation } from '@/src/features/mock/hooks/use-mock-location'
+import { useOpenInMaps } from '@/src/features/mock/hooks/use-open-in-maps'
 import { useRouteImport } from '@/src/features/mock/hooks/use-route-import'
 import { useSaveFavorite } from '@/src/features/mock/hooks/use-save-favorite'
+import { useSharedPlace } from '@/src/features/mock/hooks/use-shared-place'
 import { t } from '@/src/i18n'
 import { useSettings, useSettingsHydrated } from '@/src/stores/settings-store'
 
@@ -30,7 +33,9 @@ function MapScreen() {
   const mock = useMockLocation()
   const importRoute = useRouteImport()
   const saveFavorite = useSaveFavorite()
+  const openInMaps = useOpenInMaps()
   useGeoIntent()
+  useSharedPlace()
 
   function pick(next: Coordinates) {
     useSettings.getState().pickPosition(next)
@@ -56,39 +61,40 @@ function MapScreen() {
           style={{ paddingTop: insets.top + 12 }}
         >
           <AddressSearch onFound={focus} />
-          <IconButton
-            icon={Settings}
-            label={t('settings')}
-            onPress={() => router.push('/settings')}
-          />
+          <View className="gap-2">
+            <IconButton
+              icon={Settings}
+              label={t('settings')}
+              onPress={() => router.push('/settings')}
+            />
+            <ButtonGroup
+              items={[
+                { icon: Navigation, label: t('openInMaps'), onPress: openInMaps },
+                { icon: Star, label: t('saveFavorite'), onPress: saveFavorite, hidden: hasRoute },
+                {
+                  icon: Bookmark,
+                  label: t('favorites'),
+                  onPress: () => router.push('/favorites'),
+                },
+                {
+                  icon: RouteIcon,
+                  label: t('importRoute'),
+                  onPress: importRoute,
+                  active: hasRoute,
+                },
+              ]}
+            />
+          </View>
         </View>
       </View>
       <ScreenFooter>
         <RouteChip />
         {hasRoute ? null : <CoordinateInputs key={pickRevision} />}
-        <View className="flex-row gap-2">
-          {hasRoute ? null : (
-            <IconButton icon={Star} label={t('saveFavorite')} onPress={saveFavorite} />
-          )}
-          <IconButton
-            icon={Bookmark}
-            label={t('favorites')}
-            onPress={() => router.push('/favorites')}
-          />
-          <IconButton
-            icon={RouteIcon}
-            label={t('importRoute')}
-            onPress={importRoute}
-            active={hasRoute}
-          />
-          <View className="flex-1">
-            {mock.running ? (
-              <Button variant="danger" title={t('stop')} onPress={mock.stop} />
-            ) : (
-              <Button title={t('apply')} onPress={mock.start} />
-            )}
-          </View>
-        </View>
+        {mock.running ? (
+          <Button variant="danger" title={t('stop')} onPress={mock.stop} />
+        ) : (
+          <Button title={t('apply')} onPress={mock.start} />
+        )}
       </ScreenFooter>
     </View>
   )

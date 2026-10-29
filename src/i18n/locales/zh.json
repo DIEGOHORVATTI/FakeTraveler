@@ -41,5 +41,7 @@
   "permissionDenied": "请允许访问位置信息，以便模拟在后台持续运行。",
   "notificationTitle": "正在模拟位置",
   "widgetOn": "模拟中",
-  "widgetOff": "已停止"
+  "widgetOff": "已停止",
+  "openInMaps": "在其他应用中打开",
+  "sharedPlaceNotFound": "无法读取分享的地点。"
 }

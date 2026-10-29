@@ -41,5 +41,7 @@
   "permissionDenied": "Cho phép truy cập vị trí để giả lập tiếp tục chạy nền.",
   "notificationTitle": "Đang giả lập vị trí",
   "widgetOn": "Đang giả lập",
-  "widgetOff": "Đã dừng"
+  "widgetOff": "Đã dừng",
+  "openInMaps": "Mở trong ứng dụng khác",
+  "sharedPlaceNotFound": "Không đọc được địa điểm được chia sẻ."
 }

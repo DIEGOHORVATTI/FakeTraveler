@@ -41,5 +41,7 @@
   "permissionDenied": "Sta locatietoegang toe zodat de simulatie op de achtergrond doorgaat.",
   "notificationTitle": "Locatie wordt gesimuleerd",
   "widgetOn": "Simuleren",
-  "widgetOff": "Gestopt"
+  "widgetOff": "Gestopt",
+  "openInMaps": "Openen in andere app",
+  "sharedPlaceNotFound": "Kan de gedeelde plaats niet lezen."
 }

@@ -41,5 +41,7 @@
   "permissionDenied": "Autorisez l’accès à la position pour que la simulation continue en arrière-plan.",
   "notificationTitle": "Simulation de position",
   "widgetOn": "Simulation",
-  "widgetOff": "Arrêté"
+  "widgetOff": "Arrêté",
+  "openInMaps": "Ouvrir dans une autre app",
+  "sharedPlaceNotFound": "Impossible de lire le lieu partagé."
 }

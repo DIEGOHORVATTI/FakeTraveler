@@ -26,6 +26,7 @@ export type MockLabels = {
 type MockLocationEvents = {
   onLocation: (position: Coordinates) => void
   onStop: () => void
+  onSharedText: (payload: { text: string }) => void
 }
 
 declare class MockLocationNativeModule extends NativeModule<MockLocationEvents> {
@@ -34,6 +35,8 @@ declare class MockLocationNativeModule extends NativeModule<MockLocationEvents> 
   stop(): void
   setResumeOnBoot(enabled: boolean): void
   setLabels(labels: MockLabels): void
+  consumeSharedText(): string | null
+  openInMaps(latitude: number, longitude: number, label: string, title: string): void
 }
 
 const native = requireNativeModule<MockLocationNativeModule>('MockLocation')
@@ -44,5 +47,8 @@ export const MockLocation = {
   stop: () => native.stop(),
   setResumeOnBoot: (enabled: boolean) => native.setResumeOnBoot(enabled),
   setLabels: (labels: MockLabels) => native.setLabels(labels),
+  consumeSharedText: () => native.consumeSharedText(),
+  openInMaps: (position: Coordinates, label: string, title: string) =>
+    native.openInMaps(position.latitude, position.longitude, label, title),
   addListener: native.addListener.bind(native) as MockLocationNativeModule['addListener'],
 }

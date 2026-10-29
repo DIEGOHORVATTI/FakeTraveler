@@ -41,5 +41,7 @@
   "permissionDenied": "Zezwól na dostęp do lokalizacji, aby symulacja działała w tle.",
   "notificationTitle": "Symulowanie lokalizacji",
   "widgetOn": "Symulacja",
-  "widgetOff": "Zatrzymano"
+  "widgetOff": "Zatrzymano",
+  "openInMaps": "Otwórz w innej aplikacji",
+  "sharedPlaceNotFound": "Nie udało się odczytać udostępnionego miejsca."
 }

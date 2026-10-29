@@ -2,6 +2,8 @@ package expo.modules.mocklocation
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import expo.modules.kotlin.exception.CodedException
@@ -22,7 +24,7 @@ class MockLocationModule : Module() {
   override fun definition() = ModuleDefinition {
     Name("MockLocation")
 
-    Events("onLocation", "onStop")
+    Events("onLocation", "onStop", "onSharedText")
 
     OnCreate {
       MockEngine.locationListener = { latitude, longitude ->
@@ -49,9 +51,32 @@ class MockLocationModule : Module() {
 
     Function("setResumeOnBoot") { enabled: Boolean -> MockPrefs.setResumeOnBoot(context, enabled) }
 
+    Function("consumeSharedText") { appContext.currentActivity?.intent?.let(::takeSharedText) }
+
+    OnNewIntent { intent ->
+      takeSharedText(intent)?.let { sendEvent("onSharedText", mapOf("text" to it)) }
+    }
+
+    Function("openInMaps") { latitude: Double, longitude: Double, label: String, title: String ->
+      val place = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude(${Uri.encode(label)})")
+      val chooser = Intent.createChooser(Intent(Intent.ACTION_VIEW, place), title)
+        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+      context.packageManager.getLaunchIntentForPackage(context.packageName)?.component?.let {
+        chooser.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, arrayOf(it))
+      }
+      context.startActivity(chooser)
+    }
+
     Function("setLabels") { labels: Map<String, String> ->
       MockPrefs.setLabels(context, labels)
       MockWidgetProvider.refresh(context)
     }
+  }
+
+  private fun takeSharedText(intent: Intent): String? {
+    if (intent.action != Intent.ACTION_SEND) return null
+    val text = intent.getStringExtra(Intent.EXTRA_TEXT) ?: return null
+    intent.action = Intent.ACTION_MAIN
+    return text
   }
 }

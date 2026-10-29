@@ -41,5 +41,7 @@
   "permissionDenied": "اسمح بالوصول إلى الموقع لتستمر المحاكاة في الخلفية.",
   "notificationTitle": "جارٍ محاكاة الموقع",
   "widgetOn": "قيد المحاكاة",
-  "widgetOff": "متوقف"
+  "widgetOff": "متوقف",
+  "openInMaps": "فتح في تطبيق آخر",
+  "sharedPlaceNotFound": "تعذّرت قراءة المكان المُشارك."
 }

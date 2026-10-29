@@ -41,5 +41,7 @@
   "permissionDenied": "Tillad adgang til placering, så simuleringen kører videre i baggrunden.",
   "notificationTitle": "Simulerer placering",
   "widgetOn": "Simulerer",
-  "widgetOff": "Stoppet"
+  "widgetOff": "Stoppet",
+  "openInMaps": "Åbn i en anden app",
+  "sharedPlaceNotFound": "Kunne ikke læse det delte sted."
 }
