@@ -3,22 +3,27 @@ import type { ReactNode } from 'react'
 import { Switch, Text, View } from 'react-native'
 
 import { Input } from '@/src/components/ui/input'
+import { Select } from '@/src/components/ui/select'
+import {
+  LanguageField,
+  Labeled,
+  ThemeField,
+} from '@/src/features/preferences/components/preference-fields'
 import { t } from '@/src/i18n'
+import { MAP_STYLES } from '@/src/lib/map-styles'
 import { parseNumber } from '@/src/lib/number'
-import { DEFAULT_MAP_PROVIDER, useSettings } from '@/src/stores/settings-store'
+import { useSettings } from '@/src/stores/settings-store'
 
-type FieldProps = {
-  label: string
-  hint?: string
+type SectionProps = {
+  title: string
   children: ReactNode
 }
 
-function Field({ label, hint, children }: FieldProps) {
+function Section({ title, children }: SectionProps) {
   return (
-    <View className="gap-2">
-      <Text className="text-sm text-text-primary">{label}</Text>
+    <View className="gap-4 rounded-2xl bg-bg-card p-4">
+      <Text className="text-base font-semibold text-text-primary">{title}</Text>
       {children}
-      {hint ? <Text className="text-xs text-text-muted">{hint}</Text> : null}
     </View>
   )
 }
@@ -33,72 +38,81 @@ type NumberFieldProps = {
 function NumberField({ label, initialValue, integer, onValid }: NumberFieldProps) {
   function handleChange(text: string) {
     const value = parseNumber(text) ?? 0
-    onValid(integer ? Math.trunc(value) : value)
+    onValid(integer ? Math.max(0, Math.trunc(value)) : value)
   }
 
   return (
-    <Field label={label}>
+    <Labeled label={label}>
       <Input
         defaultValue={String(initialValue)}
         onChangeText={handleChange}
-        keyboardType="numbers-and-punctuation"
+        keyboardType={integer ? 'number-pad' : 'numeric'}
         selectTextOnFocus
       />
-    </Field>
+    </Labeled>
   )
+}
+
+function mapStyleLabel(style: string) {
+  if (style === 'auto') return t('mapAuto')
+  if (style === 'Esri.WorldImagery') return t('mapSatellite')
+  return style.replace('CartoDB.', 'Carto ')
 }
 
 export function SettingsForm() {
   const mockSpeed = useSettings((state) => state.mockSpeed)
-  const { mockCount, mockFrequency, latitudeStep, longitudeStep, mapProvider, update } =
-    useSettings.getState()
+  const mapProvider = useSettings((state) => state.mapProvider)
+  const { mockCount, mockFrequency, latitudeStep, longitudeStep, update } = useSettings.getState()
 
   return (
-    <View className="gap-5">
-      <NumberField
-        label={t('mockCount')}
-        initialValue={mockCount}
-        integer
-        onValid={(value) => update({ mockCount: value })}
-      />
-      <NumberField
-        label={t('mockFrequency')}
-        initialValue={mockFrequency}
-        integer
-        onValid={(value) => update({ mockFrequency: value || 10 })}
-      />
-      <Field label={t('mockStep')}>
-        <View className="flex-row gap-3">
-          <View className="flex-1">
-            <NumberField
-              label={t('latitude')}
-              initialValue={latitudeStep}
-              onValid={(value) => update({ latitudeStep: value })}
-            />
-          </View>
-          <View className="flex-1">
-            <NumberField
-              label={t('longitude')}
-              initialValue={longitudeStep}
-              onValid={(value) => update({ longitudeStep: value })}
-            />
-          </View>
-        </View>
-      </Field>
-      <View className="flex-row items-center justify-between">
-        <Text className="flex-1 text-sm text-text-primary">{t('mockSpeed')}</Text>
-        <Switch value={mockSpeed} onValueChange={(value) => update({ mockSpeed: value })} />
-      </View>
-      <Field label={t('mapProvider')} hint={t('mapProviderInfo')}>
-        <Input
-          defaultValue={mapProvider}
-          onEndEditing={(event) =>
-            update({ mapProvider: event.nativeEvent.text.trim() || DEFAULT_MAP_PROVIDER })
-          }
-          autoCapitalize="none"
-          autoCorrect={false}
+    <View className="gap-4">
+      <Section title={t('appearance')}>
+        <LanguageField />
+        <ThemeField />
+        <Labeled label={t('mapStyle')}>
+          <Select
+            value={mapProvider}
+            options={MAP_STYLES.map((style) => ({ value: style, label: mapStyleLabel(style) }))}
+            onChange={(value) => update({ mapProvider: value })}
+          />
+        </Labeled>
+      </Section>
+      <Section title={t('simulation')}>
+        <NumberField
+          label={t('mockCount')}
+          initialValue={mockCount}
+          integer
+          onValid={(value) => update({ mockCount: value })}
         />
-      </Field>
+        <NumberField
+          label={t('mockFrequency')}
+          initialValue={mockFrequency}
+          integer
+          onValid={(value) => update({ mockFrequency: value || 10 })}
+        />
+        <Labeled label={t('mockStep')}>
+          <View className="flex-row gap-3">
+            <View className="flex-1">
+              <NumberField
+                label={t('latitude')}
+                initialValue={latitudeStep}
+                onValid={(value) => update({ latitudeStep: value })}
+              />
+            </View>
+            <View className="flex-1">
+              <NumberField
+                label={t('longitude')}
+                initialValue={longitudeStep}
+                onValid={(value) => update({ longitudeStep: value })}
+              />
+            </View>
+          </View>
+        </Labeled>
+        <View className="flex-row items-center justify-between">
+          <Text className="flex-1 text-sm text-text-secondary">{t('mockSpeed')}</Text>
+          <Switch value={mockSpeed} onValueChange={(value) => update({ mockSpeed: value })} />
+        </View>
+      </Section>
     </View>
   )
 }

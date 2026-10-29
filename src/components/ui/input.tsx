@@ -11,8 +11,9 @@ export function Input({ className, ...props }: InputProps) {
 
   return (
     <TextInput
-      className={`h-12 rounded-xl bg-bg-input px-4 text-base text-text-primary ${className ?? ''}`}
+      className={`h-14 rounded-xl border border-border bg-bg-input pl-6 pr-5 text-base text-text-primary ${className ?? ''}`}
       placeholderTextColor={colors.muted}
+      underlineColorAndroid="transparent"
       {...props}
     />
   )

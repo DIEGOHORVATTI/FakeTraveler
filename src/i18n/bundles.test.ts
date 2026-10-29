@@ -2,6 +2,7 @@ import { readdirSync } from 'node:fs'
 import { expect, it } from 'bun:test'
 
 import { bundles } from './bundles'
+import { LANGUAGES } from './languages'
 import en from './locales/en.json'
 
 const localeFiles = readdirSync(new URL('./locales', import.meta.url)).map((file) =>
@@ -16,4 +17,8 @@ it.each(localeFiles)('%s traduz todas as chaves do en', (code) => {
   const bundle = bundles[code]!
   expect(Object.keys(bundle).sort()).toEqual(Object.keys(en).sort())
   expect(Object.values(bundle).every((text) => text?.trim())).toBe(true)
+})
+
+it('oferece todo idioma registrado no seletor', () => {
+  expect(LANGUAGES.map(({ code }) => code).sort()).toEqual(localeFiles.sort())
 })

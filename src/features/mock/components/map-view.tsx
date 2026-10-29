@@ -3,6 +3,7 @@ import { useColorScheme } from 'react-native'
 import { WebView, type WebViewMessageEvent } from 'react-native-webview'
 
 import type { Coordinates } from '@/modules/mock-location'
+import { resolveMapProvider } from '@/src/lib/map-styles'
 import { useSettings } from '@/src/stores/settings-store'
 
 import { buildLeafletHtml, MAP_BASE_URL } from '../utils/leaflet-html'
@@ -17,9 +18,10 @@ type MapViewProps = {
 
 export function MapView({ marker, onPick, onZoom }: MapViewProps) {
   const webView = useRef<WebView>(null)
-  const provider = useSettings((state) => state.mapProvider)
+  const mapStyle = useSettings((state) => state.mapProvider)
   const zoom = useSettings((state) => state.zoom)
   const dark = useColorScheme() !== 'light'
+  const provider = resolveMapProvider(mapStyle, dark)
 
   const html = useMemo(() => {
     const { latitude, longitude, zoom } = useSettings.getState()

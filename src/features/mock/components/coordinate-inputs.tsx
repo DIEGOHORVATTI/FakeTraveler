@@ -24,7 +24,7 @@ function CoordinateField({ label, initialValue, limit, onValid }: CoordinateFiel
       <Input
         defaultValue={formatCoordinate(initialValue)}
         onChangeText={handleChange}
-        keyboardType="numbers-and-punctuation"
+        keyboardType="numeric"
         selectTextOnFocus
       />
     </View>

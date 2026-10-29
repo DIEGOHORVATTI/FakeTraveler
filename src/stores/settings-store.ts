@@ -1,18 +1,13 @@
 import { useSyncExternalStore } from 'react'
-import { getLocales } from 'expo-localization'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 
 import type { Coordinates } from '@/modules/mock-location'
 
-const MAP_PROVIDER_BY_LANGUAGE: Record<string, string> = {
-  de: 'OpenStreetMap.DE',
-  fr: 'OpenStreetMap.France',
-}
+import { systemLanguage } from '@/src/i18n'
 
-export const DEFAULT_MAP_PROVIDER =
-  MAP_PROVIDER_BY_LANGUAGE[getLocales()[0]?.languageCode ?? ''] ?? 'OpenStreetMap'
+export type ThemePreference = 'system' | 'light' | 'dark'
 
 export type MockSettings = {
   mockCount: number
@@ -26,11 +21,18 @@ type SettingsState = MockSettings &
   Coordinates & {
     zoom: number
     mapProvider: string
+    language: string
+    theme: ThemePreference
+    onboarded: boolean
     pickRevision: number
     pickPosition: (position: Coordinates) => void
     typePosition: (position: Partial<Coordinates>) => void
     setZoom: (zoom: number) => void
-    update: (patch: Partial<MockSettings & { mapProvider: string }>) => void
+    update: (
+      patch: Partial<
+        MockSettings & Pick<SettingsState, 'mapProvider' | 'language' | 'theme' | 'onboarded'>
+      >,
+    ) => void
   }
 
 export const useSettings = create<SettingsState>()(
@@ -44,7 +46,10 @@ export const useSettings = create<SettingsState>()(
       latitudeStep: 0,
       longitudeStep: 0,
       mockSpeed: true,
-      mapProvider: DEFAULT_MAP_PROVIDER,
+      mapProvider: 'auto',
+      language: systemLanguage,
+      theme: 'system',
+      onboarded: false,
       pickRevision: 0,
       pickPosition: (position) =>
         set((state) => ({ ...position, pickRevision: state.pickRevision + 1 })),

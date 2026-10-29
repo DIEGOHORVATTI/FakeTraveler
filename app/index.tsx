@@ -1,4 +1,4 @@
-import { Link } from 'expo-router'
+import { Link, Redirect } from 'expo-router'
 import { Settings } from 'lucide-react-native'
 import { Pressable, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -33,7 +33,7 @@ function MapScreen() {
 
   return (
     <View className="flex-1 bg-bg-primary" style={{ paddingTop: insets.top }}>
-      <View className="flex-row items-center gap-2 px-4 py-3">
+      <View className="z-10 flex-row items-start gap-2 px-4 py-3">
         <AddressSearch onFound={pick} />
         <Link href="/settings" asChild>
           <Pressable
@@ -62,5 +62,9 @@ function MapScreen() {
 }
 
 export default function MapRoute() {
-  return useSettingsHydrated() ? <MapScreen /> : null
+  const hydrated = useSettingsHydrated()
+  const onboarded = useSettings((state) => state.onboarded)
+
+  if (!hydrated) return null
+  return onboarded ? <MapScreen /> : <Redirect href="/welcome" />
 }
