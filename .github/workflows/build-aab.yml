@@ -17,6 +17,14 @@ on:
           - alpha
           - beta
           - production
+      status:
+        description: 'Status da release (draft enquanto o app nunca foi publicado)'
+        required: true
+        default: completed
+        type: choice
+        options:
+          - completed
+          - draft
       bump:
         description: 'Como subir o versionName (major.minor.patch)'
         required: true
@@ -211,7 +219,7 @@ jobs:
           packageName: com.diegohorvatti.fakeTraveler
           releaseFiles: android/app/build/outputs/bundle/release/*.aab
           track: ${{ inputs.track }}
-          status: completed
+          status: ${{ inputs.status }}
           whatsNewDirectory: play/whatsnew
 
       - name: Calcula o fingerprint deste binário
