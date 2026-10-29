@@ -5,7 +5,8 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start --dev-client",
-    "android": "expo start --android --dev-client",
+    "android": "ANDROID_HOME=${ANDROID_HOME:-/usr/lib/android-sdk} expo start --android --dev-client",
+    "dev:mobile": "bun run android",
     "lint": "oxlint app src modules",
     "lint:fix": "oxlint app src modules --fix",
     "format": "oxfmt",

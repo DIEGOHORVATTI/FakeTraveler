@@ -2,6 +2,15 @@ name: Build Android APK
 
 on:
   workflow_dispatch:
+    inputs:
+      tipo:
+        description: 'Tipo de build'
+        required: true
+        default: release
+        type: choice
+        options:
+          - release
+          - development
   push:
     tags: ['v*']
 
@@ -43,12 +52,15 @@ jobs:
 
       - name: Build APK
         working-directory: android
-        run: ./gradlew assembleRelease --no-daemon --max-workers=2 -x lint -Pandroid.lint.checkReleaseBuilds=false
+        run: |
+          tarefa=assembleRelease
+          [ "${{ inputs.tipo }}" = "development" ] && tarefa=assembleDebug
+          ./gradlew "$tarefa" --no-daemon --max-workers=2 -x lint -Pandroid.lint.checkReleaseBuilds=false
         env:
           GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx3g -Dkotlin.daemon.jvmargs=-Xmx1g
           ORG_GRADLE_PROJECT_reactNativeArchitectures: arm64-v8a,armeabi-v7a
 
-      - run: cp android/app/build/outputs/apk/release/app-release.apk fake-traveler.apk
+      - run: cp android/app/build/outputs/apk/*/app-*.apk fake-traveler.apk
 
       - uses: actions/upload-artifact@v4
         with:
