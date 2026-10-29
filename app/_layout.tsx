@@ -4,12 +4,14 @@ import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 
 import { useAppPreferences } from '@/src/hooks/use-app-preferences'
+import { useSplashGate } from '@/src/hooks/use-splash-gate'
 import { t } from '@/src/i18n'
 import { useThemeColors } from '@/src/theme/colors'
 
 export default function RootLayout() {
   const colors = useThemeColors()
   const language = useAppPreferences()
+  useSplashGate()
 
   return (
     <>
