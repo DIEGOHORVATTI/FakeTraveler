@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Check, ChevronDown } from 'lucide-react-native'
-import { Modal, Pressable, ScrollView, Text, View } from 'react-native'
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 import { useThemeColors } from '@/src/theme/colors'
 
@@ -34,8 +34,15 @@ export function Select({ value, options, onChange }: SelectProps) {
         <Text className="text-base text-text-primary">{selected?.label ?? value}</Text>
         <ChevronDown color={colors.muted} size={20} />
       </Pressable>
-      <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
-        <Pressable className="flex-1 justify-center bg-black/50 p-6" onPress={() => setOpen(false)}>
+      <Modal
+        visible={open}
+        transparent
+        statusBarTranslucent
+        animationType="fade"
+        onRequestClose={() => setOpen(false)}
+      >
+        <View style={styles.backdrop}>
+          <Pressable style={StyleSheet.absoluteFill} onPress={() => setOpen(false)} />
           <View className="max-h-[70%] overflow-hidden rounded-2xl bg-bg-card">
             <ScrollView>
               {options.map((option) => (
@@ -50,8 +57,17 @@ export function Select({ value, options, onChange }: SelectProps) {
               ))}
             </ScrollView>
           </View>
-        </Pressable>
+        </View>
       </Modal>
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  backdrop: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 24,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+})

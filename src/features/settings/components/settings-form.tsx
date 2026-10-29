@@ -12,6 +12,10 @@ import {
 } from '@/src/features/preferences/components/preference-fields'
 import { t } from '@/src/i18n'
 import { MAP_STYLES } from '@/src/lib/map-styles'
+
+function resolveMapStyleChoice(style: string) {
+  return (MAP_STYLES as readonly string[]).includes(style) ? style : 'auto'
+}
 import { parseNumber } from '@/src/lib/number'
 import { useSettings } from '@/src/stores/settings-store'
 
@@ -57,7 +61,7 @@ function NumberField({ label, initialValue, integer, onValid }: NumberFieldProps
 function mapStyleLabel(style: string) {
   if (style === 'auto') return t('mapAuto')
   if (style === 'Esri.WorldImagery') return t('mapSatellite')
-  return style.replace('CartoDB.', 'Carto ')
+  return style
 }
 
 type SwitchRowProps = {
@@ -95,7 +99,7 @@ export function SettingsForm() {
         <ThemeField />
         <Labeled label={t('mapStyle')}>
           <Select
-            value={mapProvider}
+            value={resolveMapStyleChoice(mapProvider)}
             options={MAP_STYLES.map((style) => ({ value: style, label: mapStyleLabel(style) }))}
             onChange={(value) => update({ mapProvider: value })}
           />

@@ -3,7 +3,7 @@ import { useColorScheme, View } from 'react-native'
 import { WebView, type WebViewMessageEvent } from 'react-native-webview'
 
 import type { Coordinates } from '@/modules/mock-location'
-import { resolveMapProvider } from '@/src/lib/map-styles'
+import { resolveMapProvider, shouldInvertTiles } from '@/src/lib/map-styles'
 import { useSettings } from '@/src/stores/settings-store'
 
 import { buildLeafletHtml, MAP_BASE_URL } from '../utils/leaflet-html'
@@ -27,11 +27,18 @@ export function MapView({ marker, onPick, onZoom }: MapViewProps) {
   const zoom = useSettings((state) => state.zoom)
   const route = useSettings((state) => state.route)
   const dark = useColorScheme() !== 'light'
-  const provider = resolveMapProvider(mapStyle, dark)
+  const provider = resolveMapProvider(mapStyle)
 
   const html = useMemo(() => {
     const { latitude, longitude, zoom: initialZoom } = useSettings.getState()
-    return buildLeafletHtml({ latitude, longitude, zoom: initialZoom, provider, dark })
+    return buildLeafletHtml({
+      latitude,
+      longitude,
+      zoom: initialZoom,
+      provider,
+      dark,
+      invertTiles: shouldInvertTiles(provider, dark),
+    })
   }, [provider, dark])
 
   const moveMarkerScript = `window.setOnMap && window.setOnMap(${marker.latitude}, ${marker.longitude}, ${zoom}); true;`

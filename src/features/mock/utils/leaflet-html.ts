@@ -11,6 +11,7 @@ type LeafletHtmlOptions = {
   zoom: number
   provider: string
   dark: boolean
+  invertTiles: boolean
 }
 
 function toScriptLiteral(value: unknown) {
@@ -30,16 +31,17 @@ export function buildLeafletHtml(options: LeafletHtmlOptions) {
   html, body, #map { height: 100%; margin: 0; }
   .leaflet-container { background: ${options.dark ? '#0d0d0d' : '#f5f5f7'}; }
   .leaflet-control-attribution { font-size: 9px; opacity: 0.7; }
+  .inverted .map-tiles { filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%); }
   .pin { filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35)); }
 </style>
 </head>
-<body>
+<body class="${options.invertTiles ? 'inverted' : ''}">
 <div id="map"></div>
 <script>
   const options = ${toScriptLiteral(options)};
   const post = (message) => window.ReactNativeWebView.postMessage(JSON.stringify(message));
   const map = L.map('map', { zoomControl: false }).setView([options.latitude, options.longitude], options.zoom);
-  const tileOptions = { referrerPolicy: 'strict-origin-when-cross-origin' };
+  const tileOptions = { className: 'map-tiles', referrerPolicy: 'strict-origin-when-cross-origin' };
   let tiles;
   try {
     tiles = L.tileLayer.provider(options.provider, tileOptions);
