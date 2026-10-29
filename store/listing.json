@@ -1,0 +1,31 @@
+{
+  "packageName": "com.diegohorvatti.fakeTraveler",
+  "imageType": "phoneScreenshots",
+  "screenshots": [
+    "1-map.jpg",
+    "2-search.jpg",
+    "3-route.jpg",
+    "4-favorites.jpg",
+    "5-dark.jpg",
+    "6-settings.jpg"
+  ],
+  "featureGraphic": "feature-graphic.png",
+  "languages": {
+    "en-US": {
+      "dir": "en-US",
+      "listing": {
+        "title": "Fake Traveler: Fake GPS",
+        "shortDescription": "Fake your GPS location on a map, follow GPX routes and keep it in Google Maps.",
+        "fullDescription": "Fake Traveler changes where your Android phone thinks it is. Pick a point on the map, search an address or replay a route, and apps see you there.\n\nPICK ANY PLACE\nTap the map, type coordinates or search an address with autocomplete. Save the places you use the most as favorites.\n\nWORKS WITH GOOGLE MAPS\nThe fake location is also held in Google Play Services, so Google Maps and most apps stay on the point you chose instead of jumping back to your real position.\n\nRUNS IN THE BACKGROUND\nThe simulation keeps going after you close the app, with a notification and a Stop button always at hand. A home screen widget starts and stops your last simulation, and it can resume after you restart the phone.\n\nROUTES AND MOVEMENT\nImport a GPX, KML or KMZ file and Fake Traveler walks the route at the speed you choose, once or in a loop. You can also move a fixed step on every update.\n\nSHARE IN AND OUT\nShare a place from Google Maps or Waze to Fake Traveler to jump there, or open the current point in any map app.\n\nMADE FOR PRIVACY AND TESTING\nEverything stays on your phone: no account, no ads, no tracking. Useful to protect your real location or to test location based apps.\n\n21 languages, light and dark themes, OpenStreetMap or satellite maps.\n\nHow to use: enable Developer options on your phone and select Fake Traveler as the mock location app.\n\nOpen source (GPL-3.0), based on the original Fake Traveler by Matías Castillo Felmer."
+      }
+    },
+    "pt-BR": {
+      "dir": "en-US",
+      "listing": {
+        "title": "Fake Traveler: GPS Falso",
+        "shortDescription": "Simule sua localização no mapa, siga rotas GPX e mantenha no Google Maps.",
+        "fullDescription": "O Fake Traveler muda o lugar onde o seu Android acha que está. Escolha um ponto no mapa, busque um endereço ou reproduza uma rota, e os apps passam a te ver lá.\n\nESCOLHA QUALQUER LUGAR\nToque no mapa, digite coordenadas ou busque um endereço com autocomplete. Salve os lugares que você mais usa nos favoritos.\n\nFUNCIONA COM O GOOGLE MAPS\nA localização falsa também fica no Google Play Services, então o Google Maps e a maioria dos apps continuam no ponto escolhido em vez de voltar para a sua posição real.\n\nRODA EM SEGUNDO PLANO\nA simulação continua depois que você fecha o app, com uma notificação e o botão Parar sempre à mão. Um widget na tela inicial liga e desliga a última simulação, e ela pode voltar sozinha depois de reiniciar o celular.\n\nROTAS E MOVIMENTO\nImporte um arquivo GPX, KML ou KMZ e o Fake Traveler percorre a rota na velocidade que você escolher, uma vez ou em loop. Também dá para andar um passo fixo a cada atualização.\n\nCOMPARTILHE NOS DOIS SENTIDOS\nCompartilhe um lugar do Google Maps ou do Waze com o Fake Traveler para ir até ele, ou abra o ponto atual em qualquer app de mapas.\n\nPRIVACIDADE E TESTES\nTudo fica no seu celular: sem conta, sem anúncios, sem rastreamento. Útil para proteger a sua localização real ou testar apps que usam localização.\n\n21 idiomas, tema claro e escuro, mapa OpenStreetMap ou satélite.\n\nComo usar: ative as Opções do desenvolvedor no celular e selecione o Fake Traveler como app de local fictício.\n\nCódigo aberto (GPL-3.0), baseado no Fake Traveler original de Matías Castillo Felmer."
+      }
+    }
+  }
+}
