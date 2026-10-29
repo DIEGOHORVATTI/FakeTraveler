@@ -25,5 +25,21 @@
   "mockFrequency": "간격 (초)",
   "mockStep": "단계당 이동 (백만분의 1도)",
   "mockSpeed": "속도 보고",
-  "license": "Matías Castillo Felmer의 Fake Traveler 기반 · GPL-3.0"
+  "license": "Matías Castillo Felmer의 Fake Traveler 기반 · GPL-3.0",
+  "favorites": "즐겨찾기",
+  "saveFavorite": "즐겨찾기에 저장",
+  "favoriteSaved": "즐겨찾기에 저장했습니다.",
+  "noFavorites": "즐겨찾기가 없습니다. 별을 눌러 현재 지점을 저장하세요.",
+  "delete": "삭제",
+  "route": "경로",
+  "importRoute": "경로 가져오기 (GPX, KML, KMZ)",
+  "removeRoute": "경로 제거",
+  "routeInvalid": "이 파일에서 경로를 읽을 수 없습니다.",
+  "routeSpeed": "경로 속도 (km/h)",
+  "routeLoop": "경로 반복",
+  "resumeOnBoot": "휴대전화 재시작 후 다시 시작",
+  "permissionDenied": "백그라운드에서 계속 실행되도록 위치 접근을 허용하세요.",
+  "notificationTitle": "위치 모의 중",
+  "widgetOn": "모의 중",
+  "widgetOff": "중지됨"
 }

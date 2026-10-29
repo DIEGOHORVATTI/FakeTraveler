@@ -53,5 +53,24 @@ export async function searchPlaces(query: string, language: string, signal: Abor
   if (!response.ok) return []
 
   const { features } = (await response.json()) as { features: PhotonFeature[] }
-  return features.map(toPlace)
+  return uniquePlaces(features.map(toPlace))
+}
+
+export function uniquePlaces(places: Place[]) {
+  const seen = new Set<string>()
+  return places.filter((place) => {
+    const key = `${place.title}|${place.subtitle}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+export async function reverseGeocode({ latitude, longitude }: Coordinates) {
+  const params = new URLSearchParams({ lat: String(latitude), lon: String(longitude) })
+  const response = await fetch(`https://photon.komoot.io/reverse?${params}`)
+  if (!response.ok) return null
+
+  const { features } = (await response.json()) as { features: PhotonFeature[] }
+  return features[0] ? toPlace(features[0]) : null
 }

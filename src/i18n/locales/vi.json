@@ -25,5 +25,21 @@
   "mockFrequency": "Khoảng thời gian (giây)",
   "mockStep": "Di chuyển mỗi bước (phần triệu độ)",
   "mockSpeed": "Báo tốc độ",
-  "license": "Dựa trên Fake Traveler của Matías Castillo Felmer · GPL-3.0"
+  "license": "Dựa trên Fake Traveler của Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Yêu thích",
+  "saveFavorite": "Lưu vào yêu thích",
+  "favoriteSaved": "Đã lưu vào yêu thích.",
+  "noFavorites": "Chưa có mục yêu thích. Nhấn ngôi sao để lưu điểm hiện tại.",
+  "delete": "Xóa",
+  "route": "Lộ trình",
+  "importRoute": "Nhập lộ trình (GPX, KML, KMZ)",
+  "removeRoute": "Xóa lộ trình",
+  "routeInvalid": "Không đọc được lộ trình từ tệp này.",
+  "routeSpeed": "Tốc độ lộ trình (km/h)",
+  "routeLoop": "Lặp lại lộ trình",
+  "resumeOnBoot": "Tiếp tục sau khi khởi động lại điện thoại",
+  "permissionDenied": "Cho phép truy cập vị trí để giả lập tiếp tục chạy nền.",
+  "notificationTitle": "Đang giả lập vị trí",
+  "widgetOn": "Đang giả lập",
+  "widgetOff": "Đã dừng"
 }

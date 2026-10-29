@@ -25,5 +25,21 @@
   "mockFrequency": "अंतराल (सेकंड)",
   "mockStep": "प्रति चरण हलचल (डिग्री का दस लाखवाँ भाग)",
   "mockSpeed": "गति बताएँ",
-  "license": "Matías Castillo Felmer के Fake Traveler पर आधारित · GPL-3.0"
+  "license": "Matías Castillo Felmer के Fake Traveler पर आधारित · GPL-3.0",
+  "favorites": "पसंदीदा",
+  "saveFavorite": "पसंदीदा में सहेजें",
+  "favoriteSaved": "पसंदीदा में सहेजा गया।",
+  "noFavorites": "अभी कोई पसंदीदा नहीं। मौजूदा बिंदु सहेजने के लिए तारे पर टैप करें।",
+  "delete": "हटाएँ",
+  "route": "रूट",
+  "importRoute": "रूट आयात करें (GPX, KML, KMZ)",
+  "removeRoute": "रूट हटाएँ",
+  "routeInvalid": "इस फ़ाइल से रूट नहीं पढ़ा जा सका।",
+  "routeSpeed": "रूट की गति (किमी/घं)",
+  "routeLoop": "रूट दोहराएँ",
+  "resumeOnBoot": "फ़ोन रीस्टार्ट होने पर फिर शुरू करें",
+  "permissionDenied": "सिमुलेशन बैकग्राउंड में चलता रहे, इसके लिए लोकेशन की अनुमति दें।",
+  "notificationTitle": "लोकेशन सिम्युलेट हो रही है",
+  "widgetOn": "सिम्युलेट हो रहा है",
+  "widgetOff": "रुका हुआ"
 }

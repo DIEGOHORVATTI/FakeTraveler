@@ -25,5 +25,21 @@
   "mockFrequency": "Aralık (saniye)",
   "mockStep": "Adım başına hareket (derecenin milyonda biri)",
   "mockSpeed": "Hızı bildir",
-  "license": "Matías Castillo Felmer’in Fake Traveler’ına dayanır · GPL-3.0"
+  "license": "Matías Castillo Felmer’in Fake Traveler’ına dayanır · GPL-3.0",
+  "favorites": "Favoriler",
+  "saveFavorite": "Favorilere kaydet",
+  "favoriteSaved": "Favorilere kaydedildi.",
+  "noFavorites": "Henüz favori yok. Geçerli noktayı kaydetmek için yıldıza dokunun.",
+  "delete": "Sil",
+  "route": "Rota",
+  "importRoute": "Rota içe aktar (GPX, KML, KMZ)",
+  "removeRoute": "Rotayı kaldır",
+  "routeInvalid": "Bu dosyadan rota okunamadı.",
+  "routeSpeed": "Rota hızı (km/sa)",
+  "routeLoop": "Rotayı tekrarla",
+  "resumeOnBoot": "Telefon yeniden başlatılınca sürdür",
+  "permissionDenied": "Simülasyonun arka planda sürmesi için konum erişimine izin verin.",
+  "notificationTitle": "Konum taklit ediliyor",
+  "widgetOn": "Taklit ediliyor",
+  "widgetOff": "Durduruldu"
 }

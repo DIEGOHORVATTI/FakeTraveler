@@ -11,6 +11,16 @@ export type StartOptions = Coordinates & {
   intervalMs: number
   count: number
   moveAsSpeed: boolean
+  route: [number, number][]
+  routeSpeed: number
+  loop: boolean
+}
+
+export type MockLabels = {
+  notificationTitle: string
+  notificationStop: string
+  widgetOn: string
+  widgetOff: string
 }
 
 type MockLocationEvents = {
@@ -18,10 +28,21 @@ type MockLocationEvents = {
   onStop: () => void
 }
 
-declare class MockLocationModule extends NativeModule<MockLocationEvents> {
+declare class MockLocationNativeModule extends NativeModule<MockLocationEvents> {
   isRunning(): boolean
-  start(options: StartOptions): Promise<void>
+  start(plan: string): Promise<void>
   stop(): void
+  setResumeOnBoot(enabled: boolean): void
+  setLabels(labels: MockLabels): void
 }
 
-export const MockLocation = requireNativeModule<MockLocationModule>('MockLocation')
+const native = requireNativeModule<MockLocationNativeModule>('MockLocation')
+
+export const MockLocation = {
+  isRunning: () => native.isRunning(),
+  start: (options: StartOptions) => native.start(JSON.stringify(options)),
+  stop: () => native.stop(),
+  setResumeOnBoot: (enabled: boolean) => native.setResumeOnBoot(enabled),
+  setLabels: (labels: MockLabels) => native.setLabels(labels),
+  addListener: native.addListener.bind(native) as MockLocationNativeModule['addListener'],
+}

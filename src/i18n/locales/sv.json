@@ -25,5 +25,21 @@
   "mockFrequency": "Intervall (sekunder)",
   "mockStep": "Rörelse per steg (miljondels grad)",
   "mockSpeed": "Rapportera hastighet",
-  "license": "Baserad på Fake Traveler av Matías Castillo Felmer · GPL-3.0"
+  "license": "Baserad på Fake Traveler av Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favoriter",
+  "saveFavorite": "Spara som favorit",
+  "favoriteSaved": "Sparad i favoriter.",
+  "noFavorites": "Inga favoriter än. Tryck på stjärnan för att spara den aktuella punkten.",
+  "delete": "Ta bort",
+  "route": "Rutt",
+  "importRoute": "Importera rutt (GPX, KML, KMZ)",
+  "removeRoute": "Ta bort rutt",
+  "routeInvalid": "Kunde inte läsa en rutt från filen.",
+  "routeSpeed": "Rutthastighet (km/h)",
+  "routeLoop": "Upprepa rutten",
+  "resumeOnBoot": "Återuppta efter omstart av telefonen",
+  "permissionDenied": "Tillåt platsåtkomst så att simuleringen fortsätter i bakgrunden.",
+  "notificationTitle": "Simulerar plats",
+  "widgetOn": "Simulerar",
+  "widgetOff": "Stoppad"
 }

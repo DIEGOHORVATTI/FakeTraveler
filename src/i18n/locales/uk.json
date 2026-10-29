@@ -25,5 +25,21 @@
   "mockFrequency": "Інтервал (секунди)",
   "mockStep": "Зсув за крок (мільйонні частки градуса)",
   "mockSpeed": "Передавати швидкість",
-  "license": "На основі Fake Traveler від Matías Castillo Felmer · GPL-3.0"
+  "license": "На основі Fake Traveler від Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Обране",
+  "saveFavorite": "Додати в обране",
+  "favoriteSaved": "Додано в обране.",
+  "noFavorites": "Обраного ще немає. Торкніться зірки, щоб зберегти поточну точку.",
+  "delete": "Видалити",
+  "route": "Маршрут",
+  "importRoute": "Імпорт маршруту (GPX, KML, KMZ)",
+  "removeRoute": "Прибрати маршрут",
+  "routeInvalid": "Не вдалося прочитати маршрут із цього файлу.",
+  "routeSpeed": "Швидкість маршруту (км/год)",
+  "routeLoop": "Повторювати маршрут",
+  "resumeOnBoot": "Відновлювати після перезавантаження телефона",
+  "permissionDenied": "Дозвольте доступ до місцезнаходження, щоб імітація працювала у фоні.",
+  "notificationTitle": "Імітація місцезнаходження",
+  "widgetOn": "Імітація",
+  "widgetOff": "Зупинено"
 }

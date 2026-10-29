@@ -20,12 +20,12 @@ export default function WelcomeScreen() {
   return (
     <View className="flex-1 bg-bg-primary" style={{ paddingTop: insets.top }}>
       <View className="flex-1 justify-center gap-8 px-6">
-        <View className="items-center gap-3">
-          <Image source={require('@/assets/images/icon.png')} className="h-24 w-24 rounded-3xl" />
-          <Text className="text-center text-2xl font-bold text-text-primary">
+        <View className="gap-3">
+          <Image source={require('@/assets/images/icon.png')} className="h-16 w-16 rounded-2xl" />
+          <Text className="text-4xl font-black leading-[42px] tracking-tight text-text-primary">
             {t('welcomeTitle')}
           </Text>
-          <Text className="text-center text-base text-text-secondary">{t('welcomeSubtitle')}</Text>
+          <Text className="text-base leading-6 text-text-secondary">{t('welcomeSubtitle')}</Text>
         </View>
         <LanguageField />
         <ThemeField />

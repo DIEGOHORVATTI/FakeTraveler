@@ -25,5 +25,21 @@
   "mockFrequency": "Odstęp (sekundy)",
   "mockStep": "Ruch na krok (milionowe części stopnia)",
   "mockSpeed": "Podawaj prędkość",
-  "license": "Na podstawie Fake Traveler autorstwa Matíasa Castillo Felmera · GPL-3.0"
+  "license": "Na podstawie Fake Traveler autorstwa Matíasa Castillo Felmera · GPL-3.0",
+  "favorites": "Ulubione",
+  "saveFavorite": "Zapisz w ulubionych",
+  "favoriteSaved": "Zapisano w ulubionych.",
+  "noFavorites": "Brak ulubionych. Dotknij gwiazdki, aby zapisać bieżący punkt.",
+  "delete": "Usuń",
+  "route": "Trasa",
+  "importRoute": "Importuj trasę (GPX, KML, KMZ)",
+  "removeRoute": "Usuń trasę",
+  "routeInvalid": "Nie udało się odczytać trasy z tego pliku.",
+  "routeSpeed": "Prędkość trasy (km/h)",
+  "routeLoop": "Powtarzaj trasę",
+  "resumeOnBoot": "Wznów po ponownym uruchomieniu telefonu",
+  "permissionDenied": "Zezwól na dostęp do lokalizacji, aby symulacja działała w tle.",
+  "notificationTitle": "Symulowanie lokalizacji",
+  "widgetOn": "Symulacja",
+  "widgetOff": "Zatrzymano"
 }

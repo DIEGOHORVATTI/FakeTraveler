@@ -25,5 +25,21 @@
   "mockFrequency": "Interval (detik)",
   "mockStep": "Gerakan per langkah (sepersejuta derajat)",
   "mockSpeed": "Laporkan kecepatan",
-  "license": "Berdasarkan Fake Traveler oleh Matías Castillo Felmer · GPL-3.0"
+  "license": "Berdasarkan Fake Traveler oleh Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favorit",
+  "saveFavorite": "Simpan ke favorit",
+  "favoriteSaved": "Disimpan ke favorit.",
+  "noFavorites": "Belum ada favorit. Ketuk bintang untuk menyimpan titik saat ini.",
+  "delete": "Hapus",
+  "route": "Rute",
+  "importRoute": "Impor rute (GPX, KML, KMZ)",
+  "removeRoute": "Hapus rute",
+  "routeInvalid": "Tidak dapat membaca rute dari file ini.",
+  "routeSpeed": "Kecepatan rute (km/j)",
+  "routeLoop": "Ulangi rute",
+  "resumeOnBoot": "Lanjutkan setelah ponsel dimulai ulang",
+  "permissionDenied": "Izinkan akses lokasi agar simulasi tetap berjalan di latar belakang.",
+  "notificationTitle": "Menyimulasikan lokasi",
+  "widgetOn": "Menyimulasikan",
+  "widgetOff": "Berhenti"
 }

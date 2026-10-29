@@ -25,5 +25,21 @@
   "mockFrequency": "Intervalle (secondes)",
   "mockStep": "Déplacement par étape (millionièmes de degré)",
   "mockSpeed": "Indiquer la vitesse",
-  "license": "Basé sur Fake Traveler de Matías Castillo Felmer · GPL-3.0"
+  "license": "Basé sur Fake Traveler de Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favoris",
+  "saveFavorite": "Ajouter aux favoris",
+  "favoriteSaved": "Ajouté aux favoris.",
+  "noFavorites": "Aucun favori pour l’instant. Touchez l’étoile pour enregistrer le point actuel.",
+  "delete": "Supprimer",
+  "route": "Itinéraire",
+  "importRoute": "Importer un itinéraire (GPX, KML, KMZ)",
+  "removeRoute": "Retirer l’itinéraire",
+  "routeInvalid": "Impossible de lire un itinéraire dans ce fichier.",
+  "routeSpeed": "Vitesse de l’itinéraire (km/h)",
+  "routeLoop": "Répéter l’itinéraire",
+  "resumeOnBoot": "Reprendre après le redémarrage du téléphone",
+  "permissionDenied": "Autorisez l’accès à la position pour que la simulation continue en arrière-plan.",
+  "notificationTitle": "Simulation de position",
+  "widgetOn": "Simulation",
+  "widgetOff": "Arrêté"
 }

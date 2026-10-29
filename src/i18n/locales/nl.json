@@ -25,5 +25,21 @@
   "mockFrequency": "Interval (seconden)",
   "mockStep": "Beweging per stap (miljoenste graad)",
   "mockSpeed": "Snelheid doorgeven",
-  "license": "Gebaseerd op Fake Traveler van Matías Castillo Felmer · GPL-3.0"
+  "license": "Gebaseerd op Fake Traveler van Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favorieten",
+  "saveFavorite": "Opslaan als favoriet",
+  "favoriteSaved": "Opgeslagen in favorieten.",
+  "noFavorites": "Nog geen favorieten. Tik op de ster om het huidige punt op te slaan.",
+  "delete": "Verwijderen",
+  "route": "Route",
+  "importRoute": "Route importeren (GPX, KML, KMZ)",
+  "removeRoute": "Route verwijderen",
+  "routeInvalid": "Kan geen route uit dit bestand lezen.",
+  "routeSpeed": "Routesnelheid (km/u)",
+  "routeLoop": "Route herhalen",
+  "resumeOnBoot": "Hervatten na herstart van de telefoon",
+  "permissionDenied": "Sta locatietoegang toe zodat de simulatie op de achtergrond doorgaat.",
+  "notificationTitle": "Locatie wordt gesimuleerd",
+  "widgetOn": "Simuleren",
+  "widgetOff": "Gestopt"
 }

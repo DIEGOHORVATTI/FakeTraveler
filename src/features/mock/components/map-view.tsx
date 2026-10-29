@@ -20,23 +20,29 @@ export function MapView({ marker, onPick, onZoom }: MapViewProps) {
   const webView = useRef<WebView>(null)
   const mapStyle = useSettings((state) => state.mapProvider)
   const zoom = useSettings((state) => state.zoom)
+  const route = useSettings((state) => state.route)
   const dark = useColorScheme() !== 'light'
   const provider = resolveMapProvider(mapStyle, dark)
 
   const html = useMemo(() => {
-    const { latitude, longitude, zoom } = useSettings.getState()
-    return buildLeafletHtml({ latitude, longitude, zoom, provider, dark })
+    const { latitude, longitude, zoom: initialZoom } = useSettings.getState()
+    return buildLeafletHtml({ latitude, longitude, zoom: initialZoom, provider, dark })
   }, [provider, dark])
 
   const moveMarkerScript = `window.setOnMap && window.setOnMap(${marker.latitude}, ${marker.longitude}, ${zoom}); true;`
-
-  function moveMarker() {
-    webView.current?.injectJavaScript(moveMarkerScript)
-  }
+  const routeScript = `window.setRoute && window.setRoute(${JSON.stringify(route?.points ?? [])}); true;`
 
   useEffect(() => {
     webView.current?.injectJavaScript(moveMarkerScript)
   }, [moveMarkerScript])
+
+  useEffect(() => {
+    webView.current?.injectJavaScript(routeScript)
+  }, [routeScript])
+
+  function syncMap() {
+    webView.current?.injectJavaScript(moveMarkerScript + routeScript)
+  }
 
   function handleMessage(event: WebViewMessageEvent) {
     const message = JSON.parse(event.nativeEvent.data) as MapMessage
@@ -51,7 +57,7 @@ export function MapView({ marker, onPick, onZoom }: MapViewProps) {
       originWhitelist={['*']}
       source={{ html, baseUrl: MAP_BASE_URL }}
       onMessage={handleMessage}
-      onLoadEnd={moveMarker}
+      onLoadEnd={syncMap}
     />
   )
 }

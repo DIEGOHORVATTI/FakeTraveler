@@ -25,5 +25,21 @@
   "mockFrequency": "Intervalo (segundos)",
   "mockStep": "Movimiento por paso (millonésimas de grado)",
   "mockSpeed": "Informar velocidad",
-  "license": "Basado en Fake Traveler de Matías Castillo Felmer · GPL-3.0"
+  "license": "Basado en Fake Traveler de Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favoritos",
+  "saveFavorite": "Guardar en favoritos",
+  "favoriteSaved": "Guardado en favoritos.",
+  "noFavorites": "Aún no hay favoritos. Toca la estrella para guardar el punto actual.",
+  "delete": "Eliminar",
+  "route": "Ruta",
+  "importRoute": "Importar ruta (GPX, KML, KMZ)",
+  "removeRoute": "Quitar ruta",
+  "routeInvalid": "No se pudo leer una ruta de este archivo.",
+  "routeSpeed": "Velocidad de la ruta (km/h)",
+  "routeLoop": "Repetir la ruta",
+  "resumeOnBoot": "Reanudar al reiniciar el teléfono",
+  "permissionDenied": "Permite el acceso a la ubicación para que la simulación siga en segundo plano.",
+  "notificationTitle": "Simulando ubicación",
+  "widgetOn": "Simulando",
+  "widgetOff": "Detenido"
 }

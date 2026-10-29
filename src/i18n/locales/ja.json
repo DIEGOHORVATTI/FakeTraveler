@@ -25,5 +25,21 @@
   "mockFrequency": "間隔 (秒)",
   "mockStep": "1 ステップあたりの移動量 (100 万分の 1 度)",
   "mockSpeed": "速度を通知する",
-  "license": "Matías Castillo Felmer の Fake Traveler をもとに作成 · GPL-3.0"
+  "license": "Matías Castillo Felmer の Fake Traveler をもとに作成 · GPL-3.0",
+  "favorites": "お気に入り",
+  "saveFavorite": "お気に入りに保存",
+  "favoriteSaved": "お気に入りに保存しました。",
+  "noFavorites": "お気に入りはまだありません。星をタップすると現在の地点を保存できます。",
+  "delete": "削除",
+  "route": "ルート",
+  "importRoute": "ルートを読み込む (GPX、KML、KMZ)",
+  "removeRoute": "ルートを削除",
+  "routeInvalid": "このファイルからルートを読み込めませんでした。",
+  "routeSpeed": "ルートの速度 (km/h)",
+  "routeLoop": "ルートを繰り返す",
+  "resumeOnBoot": "スマホの再起動後に再開する",
+  "permissionDenied": "バックグラウンドで偽装を続けるには位置情報へのアクセスを許可してください。",
+  "notificationTitle": "位置情報を偽装中",
+  "widgetOn": "偽装中",
+  "widgetOff": "停止中"
 }

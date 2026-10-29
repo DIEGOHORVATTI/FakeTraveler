@@ -25,5 +25,21 @@
   "mockFrequency": "Interval (sekunder)",
   "mockStep": "Bevægelse pr. trin (milliontedele grad)",
   "mockSpeed": "Angiv hastighed",
-  "license": "Baseret på Fake Traveler af Matías Castillo Felmer · GPL-3.0"
+  "license": "Baseret på Fake Traveler af Matías Castillo Felmer · GPL-3.0",
+  "favorites": "Favoritter",
+  "saveFavorite": "Gem som favorit",
+  "favoriteSaved": "Gemt i favoritter.",
+  "noFavorites": "Ingen favoritter endnu. Tryk på stjernen for at gemme det aktuelle punkt.",
+  "delete": "Slet",
+  "route": "Rute",
+  "importRoute": "Importér rute (GPX, KML, KMZ)",
+  "removeRoute": "Fjern rute",
+  "routeInvalid": "Kunne ikke læse en rute fra denne fil.",
+  "routeSpeed": "Rutehastighed (km/t)",
+  "routeLoop": "Gentag ruten",
+  "resumeOnBoot": "Genoptag efter genstart af telefonen",
+  "permissionDenied": "Tillad adgang til placering, så simuleringen kører videre i baggrunden.",
+  "notificationTitle": "Simulerer placering",
+  "widgetOn": "Simulerer",
+  "widgetOff": "Stoppet"
 }

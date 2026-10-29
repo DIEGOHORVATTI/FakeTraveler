@@ -25,5 +25,21 @@
   "mockFrequency": "间隔（秒）",
   "mockStep": "每步移动（百万分之一度）",
   "mockSpeed": "报告速度",
-  "license": "基于 Matías Castillo Felmer 的 Fake Traveler · GPL-3.0"
+  "license": "基于 Matías Castillo Felmer 的 Fake Traveler · GPL-3.0",
+  "favorites": "收藏",
+  "saveFavorite": "收藏此地点",
+  "favoriteSaved": "已加入收藏。",
+  "noFavorites": "还没有收藏。点按星标即可保存当前地点。",
+  "delete": "删除",
+  "route": "路线",
+  "importRoute": "导入路线（GPX、KML、KMZ）",
+  "removeRoute": "移除路线",
+  "routeInvalid": "无法从此文件读取路线。",
+  "routeSpeed": "路线速度（公里/小时）",
+  "routeLoop": "循环路线",
+  "resumeOnBoot": "手机重启后继续",
+  "permissionDenied": "请允许访问位置信息，以便模拟在后台持续运行。",
+  "notificationTitle": "正在模拟位置",
+  "widgetOn": "模拟中",
+  "widgetOff": "已停止"
 }

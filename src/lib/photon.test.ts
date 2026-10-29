@@ -1,6 +1,6 @@
 import { expect, it } from 'bun:test'
 
-import { toPlace } from './photon'
+import { toPlace, uniquePlaces } from './photon'
 
 it('monta título e subtítulo sem repetir partes', () => {
   const place = toPlace({
@@ -31,4 +31,13 @@ it('usa a cidade como título quando não há nome', () => {
 
   expect(place.title).toBe('São Paulo')
   expect(place.subtitle).toBe('Brasil')
+})
+
+it('remove sugestões repetidas', () => {
+  const place = toPlace({
+    geometry: { coordinates: [-46.65, -23.56] },
+    properties: { name: 'Avenida Paulista', city: 'São Paulo', country: 'Brasil' },
+  })
+
+  expect(uniquePlaces([place, { ...place, id: 'outro' }])).toHaveLength(1)
 })

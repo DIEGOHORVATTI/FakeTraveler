@@ -25,5 +25,21 @@
   "mockFrequency": "الفاصل (بالثواني)",
   "mockStep": "الحركة لكل خطوة (أجزاء من مليون من الدرجة)",
   "mockSpeed": "الإبلاغ عن السرعة",
-  "license": "مبني على Fake Traveler من Matías Castillo Felmer · GPL-3.0"
+  "license": "مبني على Fake Traveler من Matías Castillo Felmer · GPL-3.0",
+  "favorites": "المفضلة",
+  "saveFavorite": "حفظ في المفضلة",
+  "favoriteSaved": "تم الحفظ في المفضلة.",
+  "noFavorites": "لا توجد مفضلة بعد. اضغط على النجمة لحفظ النقطة الحالية.",
+  "delete": "حذف",
+  "route": "المسار",
+  "importRoute": "استيراد مسار (GPX، KML، KMZ)",
+  "removeRoute": "إزالة المسار",
+  "routeInvalid": "تعذّرت قراءة مسار من هذا الملف.",
+  "routeSpeed": "سرعة المسار (كم/س)",
+  "routeLoop": "تكرار المسار",
+  "resumeOnBoot": "الاستئناف بعد إعادة تشغيل الهاتف",
+  "permissionDenied": "اسمح بالوصول إلى الموقع لتستمر المحاكاة في الخلفية.",
+  "notificationTitle": "جارٍ محاكاة الموقع",
+  "widgetOn": "قيد المحاكاة",
+  "widgetOff": "متوقف"
 }

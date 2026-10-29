@@ -64,6 +64,15 @@ export function buildLeafletHtml(options: LeafletHtmlOptions) {
   map.on('contextmenu', pick);
   map.on('zoomend', () => post({ type: 'zoom', zoom: map.getZoom() }));
 
+  let routeLayer;
+  window.setRoute = (points) => {
+    if (routeLayer) routeLayer.remove();
+    routeLayer = undefined;
+    if (!points.length) return;
+    routeLayer = L.polyline(points, { color: '${PIN_COLOR}', weight: 5, opacity: 0.8 }).addTo(map);
+    map.fitBounds(routeLayer.getBounds(), { padding: [48, 48] });
+  };
+
   window.setOnMap = (latitude, longitude, zoom) => {
     if (marker.getLatLng().equals([latitude, longitude]) && map.getZoom() === zoom) return;
     marker.setLatLng([latitude, longitude]);

@@ -25,6 +25,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen name="settings" options={{ title: t('settings') }} />
+        <Stack.Screen name="favorites" options={{ title: t('favorites') }} />
       </Stack>
     </>
   )

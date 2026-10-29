@@ -15,6 +15,18 @@ export type MockSettings = {
   latitudeStep: number
   longitudeStep: number
   mockSpeed: boolean
+  routeSpeedKmh: number
+  routeLoop: boolean
+}
+
+export type Favorite = Coordinates & {
+  id: string
+  name: string
+}
+
+export type Route = {
+  name: string
+  points: [number, number][]
 }
 
 type SettingsState = MockSettings &
@@ -24,13 +36,22 @@ type SettingsState = MockSettings &
     language: string
     theme: ThemePreference
     onboarded: boolean
+    resumeOnBoot: boolean
+    favorites: Favorite[]
+    route: Route | null
     pickRevision: number
     pickPosition: (position: Coordinates) => void
     typePosition: (position: Partial<Coordinates>) => void
     setZoom: (zoom: number) => void
+    addFavorite: (favorite: Favorite) => void
+    removeFavorite: (id: string) => void
     update: (
       patch: Partial<
-        MockSettings & Pick<SettingsState, 'mapProvider' | 'language' | 'theme' | 'onboarded'>
+        MockSettings &
+          Pick<
+            SettingsState,
+            'mapProvider' | 'language' | 'theme' | 'onboarded' | 'resumeOnBoot' | 'route'
+          >
       >,
     ) => void
   }
@@ -46,15 +67,23 @@ export const useSettings = create<SettingsState>()(
       latitudeStep: 0,
       longitudeStep: 0,
       mockSpeed: true,
+      routeSpeedKmh: 30,
+      routeLoop: false,
       mapProvider: 'auto',
       language: systemLanguage,
       theme: 'system',
       onboarded: false,
+      resumeOnBoot: false,
+      favorites: [],
+      route: null,
       pickRevision: 0,
       pickPosition: (position) =>
         set((state) => ({ ...position, pickRevision: state.pickRevision + 1 })),
       typePosition: (position) => set(position),
       setZoom: (zoom) => set({ zoom }),
+      addFavorite: (favorite) => set((state) => ({ favorites: [favorite, ...state.favorites] })),
+      removeFavorite: (id) =>
+        set((state) => ({ favorites: state.favorites.filter((favorite) => favorite.id !== id) })),
       update: (patch) => set(patch),
     }),
     {

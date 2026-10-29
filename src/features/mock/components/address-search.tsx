@@ -29,7 +29,7 @@ export function AddressSearch({ onFound }: AddressSearchProps) {
   }
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 gap-2">
       <SearchInput
         value={query}
         onChangeText={setQuery}
@@ -40,9 +40,10 @@ export function AddressSearch({ onFound }: AddressSearchProps) {
         placeholder={t('searchPlaceholder')}
         returnKeyType="search"
         onSubmitEditing={() => places[0] && choose(places[0])}
+        containerClassName="h-14 bg-bg-card"
       />
       {showResults ? (
-        <View className="absolute left-0 right-0 top-14 z-20 overflow-hidden rounded-xl border border-border bg-bg-card">
+        <View className="overflow-hidden rounded-xl border border-border bg-bg-card">
           {places.map((place) => (
             <Pressable
               key={place.id}

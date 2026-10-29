@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import { Switch, Text, View } from 'react-native'
 
+import { MockLocation } from '@/modules/mock-location'
 import { Input } from '@/src/components/ui/input'
 import { Select } from '@/src/components/ui/select'
 import {
@@ -59,10 +60,33 @@ function mapStyleLabel(style: string) {
   return style.replace('CartoDB.', 'Carto ')
 }
 
+type SwitchRowProps = {
+  label: string
+  value: boolean
+  onChange: (value: boolean) => void
+}
+
+function SwitchRow({ label, value, onChange }: SwitchRowProps) {
+  return (
+    <View className="flex-row items-center justify-between gap-3">
+      <Text className="flex-1 text-sm text-text-secondary">{label}</Text>
+      <Switch value={value} onValueChange={onChange} />
+    </View>
+  )
+}
+
+function setResumeOnBoot(enabled: boolean) {
+  useSettings.getState().update({ resumeOnBoot: enabled })
+  MockLocation.setResumeOnBoot(enabled)
+}
+
 export function SettingsForm() {
   const mockSpeed = useSettings((state) => state.mockSpeed)
+  const routeLoop = useSettings((state) => state.routeLoop)
+  const resumeOnBoot = useSettings((state) => state.resumeOnBoot)
   const mapProvider = useSettings((state) => state.mapProvider)
-  const { mockCount, mockFrequency, latitudeStep, longitudeStep, update } = useSettings.getState()
+  const { mockCount, mockFrequency, latitudeStep, longitudeStep, routeSpeedKmh, update } =
+    useSettings.getState()
 
   return (
     <View className="gap-4">
@@ -108,10 +132,24 @@ export function SettingsForm() {
             </View>
           </View>
         </Labeled>
-        <View className="flex-row items-center justify-between">
-          <Text className="flex-1 text-sm text-text-secondary">{t('mockSpeed')}</Text>
-          <Switch value={mockSpeed} onValueChange={(value) => update({ mockSpeed: value })} />
-        </View>
+        <SwitchRow
+          label={t('mockSpeed')}
+          value={mockSpeed}
+          onChange={(value) => update({ mockSpeed: value })}
+        />
+        <SwitchRow label={t('resumeOnBoot')} value={resumeOnBoot} onChange={setResumeOnBoot} />
+      </Section>
+      <Section title={t('route')}>
+        <NumberField
+          label={t('routeSpeed')}
+          initialValue={routeSpeedKmh}
+          onValid={(value) => update({ routeSpeedKmh: Math.max(0, value) })}
+        />
+        <SwitchRow
+          label={t('routeLoop')}
+          value={routeLoop}
+          onChange={(value) => update({ routeLoop: value })}
+        />
       </Section>
     </View>
   )
