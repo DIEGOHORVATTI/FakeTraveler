@@ -1,4 +1,5 @@
 {
   "packageName": "com.diegohorvatti.fakeTraveler",
-  "keyFile": "~/.config/scale/play-key.json"
+  "keyFile": "~/.config/scale/play-key.json",
+  "consoleAppId": "4973684977631342689"
 }

@@ -1,0 +1,12 @@
+{
+  "privacyPolicyUrl": "https://github.com/DIEGOHORVATTI/FakeTraveler/blob/master/PRIVACY.md",
+  "containsAds": false,
+  "loginRequired": false,
+  "usesAdvertisingId": false,
+  "governmentApp": false,
+  "financialFeatures": false,
+  "healthFeatures": false,
+  "collectsData": false,
+  "targetAges": ["18+"],
+  "contentRating": { "email": "contact@horvatti.com", "category": "other", "ratedContent": false }
+}
