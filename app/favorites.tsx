@@ -10,7 +10,7 @@ export default function FavoritesScreen() {
   const favorites = useSettings((state) => state.favorites)
 
   function open(favorite: Favorite) {
-    useSettings.getState().pickPosition(favorite)
+    useSettings.getState().focusPosition(favorite)
     router.back()
   }
 

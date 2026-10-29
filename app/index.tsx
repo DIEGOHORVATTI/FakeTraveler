@@ -37,6 +37,11 @@ function MapScreen() {
     if (mock.running && !hasRoute) void mock.start()
   }
 
+  function focus(next: Coordinates) {
+    useSettings.getState().focusPosition(next)
+    if (mock.running && !hasRoute) void mock.start()
+  }
+
   return (
     <View className="flex-1 bg-bg-primary">
       <View className="flex-1">
@@ -50,7 +55,7 @@ function MapScreen() {
           className="absolute left-0 right-0 top-0 flex-row items-start gap-2 px-4"
           style={{ paddingTop: insets.top + 12 }}
         >
-          <AddressSearch onFound={pick} />
+          <AddressSearch onFound={focus} />
           <IconButton
             icon={Settings}
             label={t('settings')}

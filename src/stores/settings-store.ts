@@ -7,6 +7,8 @@ import type { Coordinates } from '@/modules/mock-location'
 
 import { systemLanguage } from '@/src/i18n'
 
+const FOCUS_ZOOM = 16
+
 export type ThemePreference = 'system' | 'light' | 'dark'
 
 export type MockSettings = {
@@ -41,6 +43,7 @@ type SettingsState = MockSettings &
     route: Route | null
     pickRevision: number
     pickPosition: (position: Coordinates) => void
+    focusPosition: (position: Coordinates) => void
     typePosition: (position: Partial<Coordinates>) => void
     setZoom: (zoom: number) => void
     addFavorite: (favorite: Favorite) => void
@@ -79,6 +82,13 @@ export const useSettings = create<SettingsState>()(
       pickRevision: 0,
       pickPosition: (position) =>
         set((state) => ({ ...position, pickRevision: state.pickRevision + 1 })),
+      focusPosition: (position) =>
+        set((state) => ({
+          latitude: position.latitude,
+          longitude: position.longitude,
+          zoom: Math.max(state.zoom, FOCUS_ZOOM),
+          pickRevision: state.pickRevision + 1,
+        })),
       typePosition: (position) => set(position),
       setZoom: (zoom) => set({ zoom }),
       addFavorite: (favorite) => set((state) => ({ favorites: [favorite, ...state.favorites] })),
