@@ -11,29 +11,27 @@ class MockStep(
 )
 
 class PlanWalker(private val plan: MockPlan) {
-  private var tick = 0
   private val cumulative = buildCumulativeDistances()
   private val stepSpeed = if (plan.moveAsSpeed) stepSpeed() else 0f
+  private val followsRoute = plan.route.size >= 2
 
-  fun next(): MockStep {
-    val step = if (plan.route.size >= 2) routeStep() else fixedStep()
-    tick++
-    return step
+  fun at(elapsedMs: Long): MockStep? {
+    val stepIndex = elapsedMs / plan.intervalMs
+    if (plan.count != 0 && stepIndex >= plan.count) return null
+    return if (followsRoute) routeAt(elapsedMs) else fixedAt(stepIndex)
   }
 
-  private fun countReached() = plan.count != 0 && tick + 1 >= plan.count
-
-  private fun fixedStep() = MockStep(
-    latitude = plan.latitude + tick * plan.latitudeStep,
-    longitude = plan.longitude + tick * plan.longitudeStep,
+  private fun fixedAt(stepIndex: Long) = MockStep(
+    latitude = plan.latitude + stepIndex * plan.latitudeStep,
+    longitude = plan.longitude + stepIndex * plan.longitudeStep,
     speed = stepSpeed,
     bearing = 0f,
-    last = countReached(),
+    last = false,
   )
 
-  private fun routeStep(): MockStep {
+  private fun routeAt(elapsedMs: Long): MockStep {
     val total = cumulative.last()
-    val travelled = tick * plan.routeSpeed * plan.intervalMs / 1000.0
+    val travelled = plan.routeSpeed * elapsedMs / 1000.0
     val distance = if (plan.loop && total > 0) travelled % total else travelled.coerceAtMost(total)
     val segment = cumulative.indexOfFirst { it >= distance }.coerceIn(1, plan.route.size - 1)
     val from = plan.route[segment - 1]
@@ -46,7 +44,7 @@ class PlanWalker(private val plan: MockPlan) {
       longitude = from[1] + (to[1] - from[1]) * fraction,
       speed = plan.routeSpeed.toFloat(),
       bearing = bearingBetween(from, to),
-      last = countReached() || (!plan.loop && travelled >= total),
+      last = !plan.loop && travelled >= total,
     )
   }
 

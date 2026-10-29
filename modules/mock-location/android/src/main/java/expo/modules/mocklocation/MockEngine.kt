@@ -1,21 +1,27 @@
 package expo.modules.mocklocation
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Criteria
 import android.location.Location
 import android.location.LocationManager
 import android.os.Build
 import android.os.SystemClock
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import java.util.Timer
 import kotlin.concurrent.timer
 
 private const val MAX_PROVIDER_ATTEMPTS = 3
+private const val PUSH_PERIOD_MS = 1000L
+private const val FUSED_PROVIDER_NAME = "fused"
 
 object MockEngine {
   var locationListener: ((Double, Double) -> Unit)? = null
   var stopListener: (() -> Unit)? = null
 
   private var scheduler: Timer? = null
+  private var playServices: FusedLocationProviderClient? = null
 
   val running: Boolean
     get() = scheduler != null
@@ -43,11 +49,17 @@ object MockEngine {
     cancel(context)
     val manager = locationManager(context)
     providers.forEach { addProvider(manager, it) }
+    playServices = enablePlayServicesMock(context)
     val walker = PlanWalker(plan)
+    val startedAt = SystemClock.elapsedRealtime()
 
-    scheduler = timer(period = plan.intervalMs) {
-      val step = walker.next()
-      providers.forEach { manager.setTestProviderLocation(it, buildLocation(it, step)) }
+    scheduler = timer(period = PUSH_PERIOD_MS) {
+      val step = walker.at(SystemClock.elapsedRealtime() - startedAt)
+      if (step == null) {
+        onFinished()
+        return@timer
+      }
+      push(manager, step)
       locationListener?.invoke(step.latitude, step.longitude)
       if (step.last) onFinished()
     }
@@ -62,8 +74,21 @@ object MockEngine {
   private fun cancel(context: Context) {
     scheduler?.cancel()
     scheduler = null
+    playServices?.let { runCatching { it.setMockMode(false) } }
+    playServices = null
     val manager = locationManager(context)
     providers.forEach { runCatching { manager.removeTestProvider(it) } }
+  }
+
+  @SuppressLint("MissingPermission")
+  private fun enablePlayServicesMock(context: Context): FusedLocationProviderClient? = runCatching {
+    LocationServices.getFusedLocationProviderClient(context).also { it.setMockMode(true) }
+  }.getOrNull()
+
+  @SuppressLint("MissingPermission")
+  private fun push(manager: LocationManager, step: MockStep) {
+    providers.forEach { manager.setTestProviderLocation(it, buildLocation(it, step)) }
+    playServices?.let { client -> runCatching { client.setMockLocation(buildLocation(FUSED_PROVIDER_NAME, step)) } }
   }
 
   @Suppress("DEPRECATION")
