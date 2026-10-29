@@ -9,6 +9,7 @@ import type { Place } from '@/src/lib/photon'
 import { useThemeColors } from '@/src/theme/colors'
 
 import { usePlaceSearch } from '../hooks/use-place-search'
+import { PlacesSkeleton } from './places-skeleton'
 
 type AddressSearchProps = {
   onFound: (position: Coordinates) => void
@@ -42,6 +43,7 @@ export function AddressSearch({ onFound }: AddressSearchProps) {
         onSubmitEditing={() => places[0] && choose(places[0])}
         containerClassName="h-14 bg-bg-card"
       />
+      {focused && loading && places.length === 0 ? <PlacesSkeleton /> : null}
       {showResults ? (
         <View className="overflow-hidden rounded-xl border border-border bg-bg-card">
           {places.map((place) => (

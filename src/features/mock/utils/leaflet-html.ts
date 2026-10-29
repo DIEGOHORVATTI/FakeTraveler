@@ -46,6 +46,7 @@ export function buildLeafletHtml(options: LeafletHtmlOptions) {
   } catch (error) {
     tiles = L.tileLayer.provider('OpenStreetMap', tileOptions);
   }
+  tiles.once('load', () => post({ type: 'ready' }));
   tiles.addTo(map);
   const icon = L.divIcon({
     className: 'pin',
