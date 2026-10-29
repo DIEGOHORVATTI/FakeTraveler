@@ -46,11 +46,18 @@ jobs:
         run: bunx expo prebuild --platform android --no-install
 
       - name: Confere o fingerprint contra o último AAB enviado à Play
+        id: fingerprint
         run: |
           atual=$(bunx expo-updates fingerprint:generate --platform android | jq -r .hash)
           binario=$(jq -r .hash native-fingerprint.json)
           echo "fingerprint atual: $atual"
           echo "fingerprint do AAB: $binario"
+
+          if [ "$binario" = "null" ]; then
+            echo "::notice::Nenhum AAB enviado à Play ainda — OTA pulado."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
           if [ "$atual" != "$binario" ]; then
             echo "::error::O fingerprint mudou desde o último AAB. Este OTA não chegaria em nenhum app instalado — rode o build-aab.yml com um versionCode novo."
@@ -58,11 +65,13 @@ jobs:
           fi
 
       - name: Garante o canal production
+        if: steps.fingerprint.outputs.skip != 'true'
         run: bunx eas-cli@25.3.0 channel:create production || true
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Publica o update
+        if: steps.fingerprint.outputs.skip != 'true'
         run: |
           bunx eas-cli@25.3.0 update \
             --branch production \
