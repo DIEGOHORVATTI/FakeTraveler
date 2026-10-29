@@ -29,7 +29,7 @@
   "favorites": "Favoris",
   "saveFavorite": "Ajouter aux favoris",
   "favoriteSaved": "Ajouté aux favoris.",
-  "noFavorites": "Aucun favori pour l’instant. Touchez l’étoile pour enregistrer le point actuel.",
+  "noFavorites": "Touchez l’étoile pour enregistrer le point actuel.",
   "delete": "Supprimer",
   "route": "Itinéraire",
   "importRoute": "Importer un itinéraire (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simulation",
   "widgetOff": "Arrêté",
   "openInMaps": "Ouvrir dans une autre app",
-  "sharedPlaceNotFound": "Impossible de lire le lieu partagé."
+  "sharedPlaceNotFound": "Impossible de lire le lieu partagé.",
+  "noFavoritesTitle": "Aucun favori pour l’instant"
 }

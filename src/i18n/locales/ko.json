@@ -29,7 +29,7 @@
   "favorites": "즐겨찾기",
   "saveFavorite": "즐겨찾기에 저장",
   "favoriteSaved": "즐겨찾기에 저장했습니다.",
-  "noFavorites": "즐겨찾기가 없습니다. 별을 눌러 현재 지점을 저장하세요.",
+  "noFavorites": "별을 눌러 현재 지점을 저장하세요.",
   "delete": "삭제",
   "route": "경로",
   "importRoute": "경로 가져오기 (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "모의 중",
   "widgetOff": "중지됨",
   "openInMaps": "다른 앱에서 열기",
-  "sharedPlaceNotFound": "공유된 장소를 읽을 수 없습니다."
+  "sharedPlaceNotFound": "공유된 장소를 읽을 수 없습니다.",
+  "noFavoritesTitle": "즐겨찾기가 없습니다"
 }

@@ -29,7 +29,7 @@
   "favorites": "Yêu thích",
   "saveFavorite": "Lưu vào yêu thích",
   "favoriteSaved": "Đã lưu vào yêu thích.",
-  "noFavorites": "Chưa có mục yêu thích. Nhấn ngôi sao để lưu điểm hiện tại.",
+  "noFavorites": "Nhấn ngôi sao để lưu điểm hiện tại.",
   "delete": "Xóa",
   "route": "Lộ trình",
   "importRoute": "Nhập lộ trình (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Đang giả lập",
   "widgetOff": "Đã dừng",
   "openInMaps": "Mở trong ứng dụng khác",
-  "sharedPlaceNotFound": "Không đọc được địa điểm được chia sẻ."
+  "sharedPlaceNotFound": "Không đọc được địa điểm được chia sẻ.",
+  "noFavoritesTitle": "Chưa có mục yêu thích"
 }

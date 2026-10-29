@@ -29,7 +29,7 @@
   "favorites": "Favoriter",
   "saveFavorite": "Spara som favorit",
   "favoriteSaved": "Sparad i favoriter.",
-  "noFavorites": "Inga favoriter än. Tryck på stjärnan för att spara den aktuella punkten.",
+  "noFavorites": "Tryck på stjärnan för att spara den aktuella punkten.",
   "delete": "Ta bort",
   "route": "Rutt",
   "importRoute": "Importera rutt (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simulerar",
   "widgetOff": "Stoppad",
   "openInMaps": "Öppna i en annan app",
-  "sharedPlaceNotFound": "Kunde inte läsa den delade platsen."
+  "sharedPlaceNotFound": "Kunde inte läsa den delade platsen.",
+  "noFavoritesTitle": "Inga favoriter än"
 }

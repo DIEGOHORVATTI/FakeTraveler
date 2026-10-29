@@ -1,6 +1,8 @@
 import { useRouter } from 'expo-router'
-import { FlatList, Text, View } from 'react-native'
+import { Star } from 'lucide-react-native'
+import { FlatList } from 'react-native'
 
+import { EmptyState } from '@/src/components/ui/empty-state'
 import { FavoriteRow } from '@/src/features/favorites/components/favorite-row'
 import { t } from '@/src/i18n'
 import { useSettings, type Favorite } from '@/src/stores/settings-store'
@@ -22,9 +24,7 @@ export default function FavoritesScreen() {
       keyExtractor={(favorite) => favorite.id}
       renderItem={({ item }) => <FavoriteRow favorite={item} onOpen={open} />}
       ListEmptyComponent={
-        <View className="items-center p-8">
-          <Text className="text-center text-sm text-text-secondary">{t('noFavorites')}</Text>
-        </View>
+        <EmptyState icon={Star} title={t('noFavoritesTitle')} subtitle={t('noFavorites')} />
       }
     />
   )

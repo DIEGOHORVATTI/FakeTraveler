@@ -29,7 +29,7 @@
   "favorites": "お気に入り",
   "saveFavorite": "お気に入りに保存",
   "favoriteSaved": "お気に入りに保存しました。",
-  "noFavorites": "お気に入りはまだありません。星をタップすると現在の地点を保存できます。",
+  "noFavorites": "星をタップすると現在の地点を保存できます。",
   "delete": "削除",
   "route": "ルート",
   "importRoute": "ルートを読み込む (GPX、KML、KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "偽装中",
   "widgetOff": "停止中",
   "openInMaps": "他のアプリで開く",
-  "sharedPlaceNotFound": "共有された場所を読み込めませんでした。"
+  "sharedPlaceNotFound": "共有された場所を読み込めませんでした。",
+  "noFavoritesTitle": "お気に入りはまだありません"
 }

@@ -29,7 +29,7 @@
   "favorites": "Favoritos",
   "saveFavorite": "Salvar nos favoritos",
   "favoriteSaved": "Salvo nos favoritos.",
-  "noFavorites": "Nenhum favorito ainda. Toque na estrela para salvar o ponto atual.",
+  "noFavorites": "Toque na estrela para salvar o ponto atual.",
   "delete": "Excluir",
   "route": "Rota",
   "importRoute": "Importar rota (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simulando",
   "widgetOff": "Parado",
   "openInMaps": "Abrir em outro app",
-  "sharedPlaceNotFound": "Não foi possível ler o local compartilhado."
+  "sharedPlaceNotFound": "Não foi possível ler o local compartilhado.",
+  "noFavoritesTitle": "Nenhum favorito ainda"
 }

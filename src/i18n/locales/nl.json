@@ -29,7 +29,7 @@
   "favorites": "Favorieten",
   "saveFavorite": "Opslaan als favoriet",
   "favoriteSaved": "Opgeslagen in favorieten.",
-  "noFavorites": "Nog geen favorieten. Tik op de ster om het huidige punt op te slaan.",
+  "noFavorites": "Tik op de ster om het huidige punt op te slaan.",
   "delete": "Verwijderen",
   "route": "Route",
   "importRoute": "Route importeren (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simuleren",
   "widgetOff": "Gestopt",
   "openInMaps": "Openen in andere app",
-  "sharedPlaceNotFound": "Kan de gedeelde plaats niet lezen."
+  "sharedPlaceNotFound": "Kan de gedeelde plaats niet lezen.",
+  "noFavoritesTitle": "Nog geen favorieten"
 }

@@ -29,7 +29,7 @@
   "favorites": "Ulubione",
   "saveFavorite": "Zapisz w ulubionych",
   "favoriteSaved": "Zapisano w ulubionych.",
-  "noFavorites": "Brak ulubionych. Dotknij gwiazdki, aby zapisać bieżący punkt.",
+  "noFavorites": "Dotknij gwiazdki, aby zapisać bieżący punkt.",
   "delete": "Usuń",
   "route": "Trasa",
   "importRoute": "Importuj trasę (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Symulacja",
   "widgetOff": "Zatrzymano",
   "openInMaps": "Otwórz w innej aplikacji",
-  "sharedPlaceNotFound": "Nie udało się odczytać udostępnionego miejsca."
+  "sharedPlaceNotFound": "Nie udało się odczytać udostępnionego miejsca.",
+  "noFavoritesTitle": "Brak ulubionych"
 }

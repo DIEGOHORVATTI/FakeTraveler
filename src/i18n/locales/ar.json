@@ -29,7 +29,7 @@
   "favorites": "المفضلة",
   "saveFavorite": "حفظ في المفضلة",
   "favoriteSaved": "تم الحفظ في المفضلة.",
-  "noFavorites": "لا توجد مفضلة بعد. اضغط على النجمة لحفظ النقطة الحالية.",
+  "noFavorites": "اضغط على النجمة لحفظ النقطة الحالية.",
   "delete": "حذف",
   "route": "المسار",
   "importRoute": "استيراد مسار (GPX، KML، KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "قيد المحاكاة",
   "widgetOff": "متوقف",
   "openInMaps": "فتح في تطبيق آخر",
-  "sharedPlaceNotFound": "تعذّرت قراءة المكان المُشارك."
+  "sharedPlaceNotFound": "تعذّرت قراءة المكان المُشارك.",
+  "noFavoritesTitle": "لا توجد مفضلة بعد"
 }

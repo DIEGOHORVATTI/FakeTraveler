@@ -29,7 +29,7 @@
   "favorites": "收藏",
   "saveFavorite": "收藏此地点",
   "favoriteSaved": "已加入收藏。",
-  "noFavorites": "还没有收藏。点按星标即可保存当前地点。",
+  "noFavorites": "点按星标即可保存当前地点。",
   "delete": "删除",
   "route": "路线",
   "importRoute": "导入路线（GPX、KML、KMZ）",
@@ -43,5 +43,6 @@
   "widgetOn": "模拟中",
   "widgetOff": "已停止",
   "openInMaps": "在其他应用中打开",
-  "sharedPlaceNotFound": "无法读取分享的地点。"
+  "sharedPlaceNotFound": "无法读取分享的地点。",
+  "noFavoritesTitle": "还没有收藏"
 }

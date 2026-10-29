@@ -29,7 +29,7 @@
   "favorites": "Favoriten",
   "saveFavorite": "Als Favorit speichern",
   "favoriteSaved": "Zu Favoriten hinzugefügt.",
-  "noFavorites": "Noch keine Favoriten. Tippe auf den Stern, um den aktuellen Punkt zu speichern.",
+  "noFavorites": "Tippe auf den Stern, um den aktuellen Punkt zu speichern.",
   "delete": "Löschen",
   "route": "Route",
   "importRoute": "Route importieren (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simulation läuft",
   "widgetOff": "Gestoppt",
   "openInMaps": "In anderer App öffnen",
-  "sharedPlaceNotFound": "Der geteilte Ort konnte nicht gelesen werden."
+  "sharedPlaceNotFound": "Der geteilte Ort konnte nicht gelesen werden.",
+  "noFavoritesTitle": "Noch keine Favoriten"
 }

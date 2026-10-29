@@ -29,7 +29,7 @@
   "favorites": "Preferiti",
   "saveFavorite": "Salva nei preferiti",
   "favoriteSaved": "Salvato nei preferiti.",
-  "noFavorites": "Nessun preferito. Tocca la stella per salvare il punto attuale.",
+  "noFavorites": "Tocca la stella per salvare il punto attuale.",
   "delete": "Elimina",
   "route": "Percorso",
   "importRoute": "Importa percorso (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "In simulazione",
   "widgetOff": "Fermo",
   "openInMaps": "Apri in un’altra app",
-  "sharedPlaceNotFound": "Impossibile leggere il luogo condiviso."
+  "sharedPlaceNotFound": "Impossibile leggere il luogo condiviso.",
+  "noFavoritesTitle": "Nessun preferito"
 }

@@ -29,7 +29,7 @@
   "favorites": "Favoritter",
   "saveFavorite": "Gem som favorit",
   "favoriteSaved": "Gemt i favoritter.",
-  "noFavorites": "Ingen favoritter endnu. Tryk på stjernen for at gemme det aktuelle punkt.",
+  "noFavorites": "Tryk på stjernen for at gemme det aktuelle punkt.",
   "delete": "Slet",
   "route": "Rute",
   "importRoute": "Importér rute (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Simulerer",
   "widgetOff": "Stoppet",
   "openInMaps": "Åbn i en anden app",
-  "sharedPlaceNotFound": "Kunne ikke læse det delte sted."
+  "sharedPlaceNotFound": "Kunne ikke læse det delte sted.",
+  "noFavoritesTitle": "Ingen favoritter endnu"
 }

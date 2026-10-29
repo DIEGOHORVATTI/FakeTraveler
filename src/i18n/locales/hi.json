@@ -29,7 +29,7 @@
   "favorites": "पसंदीदा",
   "saveFavorite": "पसंदीदा में सहेजें",
   "favoriteSaved": "पसंदीदा में सहेजा गया।",
-  "noFavorites": "अभी कोई पसंदीदा नहीं। मौजूदा बिंदु सहेजने के लिए तारे पर टैप करें।",
+  "noFavorites": "मौजूदा बिंदु सहेजने के लिए तारे पर टैप करें।",
   "delete": "हटाएँ",
   "route": "रूट",
   "importRoute": "रूट आयात करें (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "सिम्युलेट हो रहा है",
   "widgetOff": "रुका हुआ",
   "openInMaps": "दूसरे ऐप में खोलें",
-  "sharedPlaceNotFound": "शेयर की गई जगह नहीं पढ़ी जा सकी।"
+  "sharedPlaceNotFound": "शेयर की गई जगह नहीं पढ़ी जा सकी।",
+  "noFavoritesTitle": "अभी कोई पसंदीदा नहीं"
 }

@@ -29,7 +29,7 @@
   "favorites": "Favorit",
   "saveFavorite": "Simpan ke favorit",
   "favoriteSaved": "Disimpan ke favorit.",
-  "noFavorites": "Belum ada favorit. Ketuk bintang untuk menyimpan titik saat ini.",
+  "noFavorites": "Ketuk bintang untuk menyimpan titik saat ini.",
   "delete": "Hapus",
   "route": "Rute",
   "importRoute": "Impor rute (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Menyimulasikan",
   "widgetOff": "Berhenti",
   "openInMaps": "Buka di aplikasi lain",
-  "sharedPlaceNotFound": "Tidak dapat membaca tempat yang dibagikan."
+  "sharedPlaceNotFound": "Tidak dapat membaca tempat yang dibagikan.",
+  "noFavoritesTitle": "Belum ada favorit"
 }

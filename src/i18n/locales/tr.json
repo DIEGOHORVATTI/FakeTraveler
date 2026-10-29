@@ -29,7 +29,7 @@
   "favorites": "Favoriler",
   "saveFavorite": "Favorilere kaydet",
   "favoriteSaved": "Favorilere kaydedildi.",
-  "noFavorites": "Henüz favori yok. Geçerli noktayı kaydetmek için yıldıza dokunun.",
+  "noFavorites": "Geçerli noktayı kaydetmek için yıldıza dokunun.",
   "delete": "Sil",
   "route": "Rota",
   "importRoute": "Rota içe aktar (GPX, KML, KMZ)",
@@ -43,5 +43,6 @@
   "widgetOn": "Taklit ediliyor",
   "widgetOff": "Durduruldu",
   "openInMaps": "Başka uygulamada aç",
-  "sharedPlaceNotFound": "Paylaşılan konum okunamadı."
+  "sharedPlaceNotFound": "Paylaşılan konum okunamadı.",
+  "noFavoritesTitle": "Henüz favori yok"
 }
